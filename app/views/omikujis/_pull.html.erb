@@ -1,1 +1,7 @@
-<%= button_to "おみくじを引く", omikujis_path, method: :post, data: { turbo_stream: true }, class: "omikuji-button"%>
+<% if params[:controller] == "tops" %>
+  <% button_class = "omikuji-button" %>
+<% else %>
+  <% button_class = "button" %>
+<% end %>
+
+<%= button_to "おみくじを引く", omikujis_path, method: :post, data: { turbo_stream: true }, class: button_class %>
