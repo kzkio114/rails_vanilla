@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  omikuji_result: one
+
+two:
+  name: MyString
+  omikuji_result: two

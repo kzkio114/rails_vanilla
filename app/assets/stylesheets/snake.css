@@ -1,0 +1,215 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.snake {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* 層を下から上に並べる */
+    align-items: center;
+  }
+
+/* トグロの丸みを帯びた長方形セグメント */
+.rounded-rectangle {
+  position: relative;
+  width: 100px;
+  height: 25px;
+  background-color: var(--layer-color, #f0f8ff ); /* デフォルトの緑色 */
+  border-radius: 50px; /* 丸みを設定 */
+  margin-top: -5px; /* 軽い重なり */
+  border: 2px solid #000; /* 黒枠 */
+  z-index: 1;
+  }
+
+.layer1 {
+  width: 100px;
+  height: 25px;
+  --layer-color: #f0f8ff; /* 動的に変更される色 */
+  margin-top: -2px; /* 最下層 */
+  border: 2px solid #000; /* 黒枠 */
+  }
+
+.layer2 {
+  width: 85px;
+  height: 20px;
+  --layer-color: #f0f8ff;
+  margin-top: -2px;
+  border: 2px solid #000; /* 黒枠 */
+  }
+
+.layer3 {
+  width: 70px;
+  height: 18px;
+  --layer-color: #f0f8ff;
+  margin-top: -2px;
+  border: 2px solid #000; /* 黒枠 */
+  z-index: 2;
+  }
+
+/* 4層目を四角形に変更 */
+.layer4 {
+  width: 30px;
+  height: 25px; /* 四角形の高さ */
+  --layer-color: #f0f8ff;
+  margin-top: -10px; /* トグロとの間隔調整 */
+  margin-bottom: -5px;
+  border-radius: 0; /* 四角形にする */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 少し立体感を追加 */
+  border: 2px solid #000; /* 黒枠 */
+  z-index: 1;
+  }
+
+/* ヘッド部分 */
+.head {
+  position: absolute;
+  width: 63px;
+  height: 32px;
+  border-radius: 50px / 30px; /* 丸みを強調 */
+  background-color:#f0f8ff; /* 明るい緑 */
+  left: 20px; /* トグロ中央に配置 */
+  top: -30px; /* トグロ上部 */
+  border: 2px solid #000; /* 黒枠 */
+  z-index: 2;
+  }
+
+/* ヘッドの目 */
+.eye {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #000; /* 黒目 */
+  border-radius: 50%; /* 円形 */
+  top: 8px;
+  }
+
+.eye.left {
+  left: 15px;
+  }
+
+.eye.right {
+  right: 15px;
+  }
+
+/* ヘッドの舌 */
+.tongue {
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background-color: #ff0000; /* 赤い舌 */
+  top: 19px;
+  left: 29px; /* ヘッド中央 */
+  z-index: 3;
+  clip-path: polygon(50% 0%, 100% 100%, 50% 70%, 0% 100%);
+  }
+
+/* 口部分 */
+.omega-container {
+  position: absolute;
+  top: 10px; /* ヘッドの下に配置 */
+  left: 50%; /* 中央揃え */
+  transform: translateX(-50%);
+  display: flex; /* 並べて表示 */
+  justify-content: center; /* 中央に配置 */
+  align-items: center;
+  gap: 0px; /* 2つの間隔をゼロに */
+  z-index: 2; /* ヘッドより手前 */
+  }
+
+/* 「ω」のスタイル */
+.omega {
+  position: relative;
+  top: 16px; /* ヘッドの下に配置 */
+  left: 7px; /* 中央揃え */
+  width: 50px; /* ω全体の幅 */
+  height: 10px; /* ω全体の高さ */
+  background-color: transparent; /* 背景を透明に */
+  }
+
+.omega::before,
+.omega::after {
+  content: '';
+  position: absolute;
+  width: 25px; /* 各半円の幅 */
+  height: 10px; /* 各半円の高さ */
+  border-bottom: 1.5px solid #000; /* 半円の線 */
+  border-radius: 0 0 20px 20px; /* 下部を丸くする */
+  background-color: transparent; /* 背景を透明に */
+  }
+
+/* 左側の半円 */
+.omega::before {
+  left: 0;
+  border-right: none; /* 線の重複を防ぐ */
+  }
+
+/* 右側の半円 */
+.omega::after {
+  right: 0;
+  border-left: none; /* 線の重複を防ぐ */
+  }
+
+/* 尻尾のコンテナ */
+.tail-container {
+  position: absolute;
+  right: -40px; /* 位置を調整 */
+  top: -23px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(59deg); /* 尻尾らしく斜めに傾ける */
+  }
+
+/* 外側の大きな円 (緑色の三日月の外側) */
+.tail-outer {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: var(--layer-color, #1cbbb8); /* デフォルト色 */
+  border-radius: 50%; /* 完全な円 */
+  border: 2px solid #000; /* 黒枠 */
+  z-index: 1;
+  }
+
+/* 内側の小さな円 (緑色の三日月の内側を削る) */
+.tail-inner {
+  position: absolute;
+  top: -10px; /* 外側円とのずれ */
+  left: -15px; /* 外側円とのずれ */
+  width: 100px;
+  height: 105px;
+  background-color: #f0f8ff; /* 背景色と同じ色で削る */
+  border-radius: 50%; /* 完全な円 */
+  box-shadow: 0 0 0 2px #000; /* 外側だけ黒枠 */
+  display: flex; /* 子要素の位置を調整 */
+  justify-content: center; /* 水平方向中央寄せ */
+  align-items: center; /* 垂直方向中央寄せ */
+  z-index: 1;
+  }
+
+/* 内側の小さな円 (緑色の三日月の内側を削る) */
+.tail-inner-cut {
+    position: absolute;
+    top: -10px; /* 外側円とのずれ */
+    left: -5px; /* 外側円とのずれ */
+    width: 100px;
+    height: 105px;
+    background-color:#f0f8ff; /* 背景色と同じ色で削る */
+    border-radius: 50%; /* 完全な円 */
+    display: flex; /* 子要素の位置を調整 */
+    justify-content: center; /* 水平方向中央寄せ */
+    align-items: center; /* 垂直方向中央寄せ */
+    z-index: 1;
+  }
+
+/* 縦書きのテキスト */
+.tail-text {
+  writing-mode: vertical-rl; /* 縦書き設定 */
+  text-align: center; /* 中央寄せ */
+  font-size: 30px; /* テキストサイズ */
+  font-weight: bold; /* 太字 */
+  color: #000; /* 文字色 */
+  transform: rotate(-59deg) translateX(15px) translateY(-5px); /* 角度をつけつつ右に移動 */
+  transform-origin: center center; /* 回転の基準を中央に設定 */
+  }
