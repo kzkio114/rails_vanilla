@@ -1,8 +1,13 @@
 <%= turbo_frame_tag "result-container" do %>
-  <% if @snake %>
-    <div>
-      <h2>結果: <%= @snake.omikuji_result.name %></h2>
+  <h1>おみくじ結果</h1>
+  <div class="container">
+    <% if @snake %>
+      <!-- 結果表示 -->
+      <h2><%= @snake.omikuji_result.name %></h2>
       <p><%= @snake.omikuji_result.description %></p>
+      <%= link_to "おみくじを引き直しますか？", omikujis_path, data: { turbo_frame: "result-container" }, class: "button" %>
+
+      <!-- 蛇の表示 -->
       <div class="centered-container">
         <div class="snake">
           <!-- ヘッド部分 -->
@@ -30,8 +35,9 @@
           </div>
         </div>
       </div>
-    </div>
-  <% else %>
-    <p>蛇のデータがありません。</p>
-  <% end %>
+    <% else %>
+      <p>蛇のデータがありません。</p>
+    <% end %>
+    <%= link_to "ホームに戻る？", root_path, data: { turbo_frame: "result-container" }, class: "button" %>
+  </div>
 <% end %>

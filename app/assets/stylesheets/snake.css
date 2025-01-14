@@ -195,7 +195,7 @@
     left: -5px; /* 外側円とのずれ */
     width: 100px;
     height: 105px;
-    background-color:#f0f8ff; /* 背景色と同じ色で削る */
+    background-color: #f9f9f9; /* 背景色と同じ色で削る */
     border-radius: 50%; /* 完全な円 */
     display: flex; /* 子要素の位置を調整 */
     justify-content: center; /* 水平方向中央寄せ */
