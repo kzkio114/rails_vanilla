@@ -213,3 +213,25 @@
   transform: rotate(-59deg) translateX(15px) translateY(-5px); /* 角度をつけつつ右に移動 */
   transform-origin: center center; /* 回転の基準を中央に設定 */
   }
+
+  /* 横線 */
+.layer-horizontal-line {
+  position: absolute;
+  top: 50%; /* レイヤーの中央に配置 */
+  left: 0;
+  width: 100%; /* レイヤー全体に広げる */
+  height: 2px; /* 線の太さ */
+  background-color: #0b0b0b; /* 線の色 */
+  z-index: 3; /* 他のレイヤーより上に配置 */
+}
+
+/* 縦線 */
+.layer-vertical-line {
+  position: absolute;
+  left: 50%; /* レイヤーの中央に配置 */
+  top: 0;
+  width: 2px; /* 線の太さ */
+  height: 100%; /* レイヤー全体に広げる */
+  background-color: #000; /* 線の色 */
+  z-index: 3; /* 他のレイヤーより上に配置 */
+}
