@@ -52,11 +52,11 @@ snakes_data = [
     name: "シロマダラ（白斑）",
     omikuji_result_name: "大吉",
     colors: [
-      { layer: 1, color: "#FFFFFF", horizontal_line: true, vertical_line: true },
+      { layer: 1, color: "#FFFFFF", horizontal_line: false, vertical_line: true },
       { layer: 2, color: "#DADADA", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#C0C0C0", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#A9A9A9", horizontal_line: true, vertical_line: true },
-      { layer: "tail-outer", color: "#C0C0C0", horizontal_line: true, vertical_line: false }
+      { layer: 3, color: "#C0C0C0", horizontal_line: false, vertical_line: true },
+      { layer: 4, color: "#A9A9A9", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#C0C0C0", horizontal_line: false, vertical_line: true }
     ]
   },
   {
