@@ -234,9 +234,10 @@
 }
 
 .layer-vertical-line {
-  width: 15px;
+  width: 14px;
   height: 100%;
   margin: 0 auto; /* 中央揃え */
   background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒色 */
   border-radius: 50%;
 }

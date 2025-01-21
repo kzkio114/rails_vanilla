@@ -52,33 +52,33 @@ snakes_data = [
     name: "シロマダラ（白斑）",
     omikuji_result_name: "大吉",
     colors: [
-      { layer: 1, color: "#FFFFFF", horizontal_line: false, vertical_line: true },
-      { layer: 2, color: "#DADADA", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#C0C0C0", horizontal_line: false, vertical_line: true },
-      { layer: 4, color: "#A9A9A9", horizontal_line: false, vertical_line: false },
-      { layer: "tail-outer", color: "#C0C0C0", horizontal_line: false, vertical_line: true }
+      { layer: 1, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 2, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 3, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 4, color: "#FFFF", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#FFFF", horizontal_line: false, vertical_line: false}
     ]
   },
   {
     name: "シマヘビ（縞蛇）",
     omikuji_result_name: "中吉",
     colors: [
-      { layer: 1, color: "#2196F3", horizontal_line: false, vertical_line: false },
+      { layer: 1, color: "#2196F3", horizontal_line: true, vertical_line: false },
       { layer: 2, color: "#1976D2", horizontal_line: true, vertical_line: false },
       { layer: 3, color: "#1565C0", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#0D47A1", horizontal_line: true, vertical_line: false },
-      { layer: "tail-outer", color: "#1565C0", horizontal_line: true, vertical_line: false }
+      { layer: 4, color: "#0D47A1", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#1565C0", horizontal_line: false , vertical_line: false }
     ]
   },
   {
     name: "ジムグリ（地潜）",
     omikuji_result_name: "中吉",
     colors: [
-      { layer: 1, color: "#8B0000", horizontal_line: true, vertical_line: true },
-      { layer: 2, color: "#A52A2A", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#B22222", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#CD5C5C", horizontal_line: true, vertical_line: true },
-      { layer: "tail-outer", color: "#A52A2A", horizontal_line: true, vertical_line: false }
+      { layer: 1, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#6A3427", horizontal_line: false, vertical_line: false }
     ]
   },
   {
@@ -96,33 +96,33 @@ snakes_data = [
     name: "ヒバカリ（日計）",
     omikuji_result_name: "小吉",
     colors: [
-      { layer: 1, color: "#A9A9A9", horizontal_line: true, vertical_line: true },
-      { layer: 2, color: "#808080", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#696969", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#D3D3D3", horizontal_line: true, vertical_line: true },
-      { layer: "tail-outer", color: "#808080", horizontal_line: true, vertical_line: false }
+      { layer: 1, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#958C59", horizontal_line: false, vertical_line: false }
     ]
   },
   {
     name: "ヤマカガシ（山楝蛇）",
     omikuji_result_name: "吉",
     colors: [
-      { layer: 1, color: "#FF4500", horizontal_line: true, vertical_line: true },
-      { layer: 2, color: "#FFD700", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#FFA500", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#FF6347", horizontal_line: true, vertical_line: true },
-      { layer: "tail-outer", color: "#FFA500", horizontal_line: true, vertical_line: false }
+      { layer: 1, color: "#FF4500", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#FFD700", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#FFA500", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#FF6347", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#FFA500", horizontal_line: false, vertical_line: false }
     ]
   },
   {
     name: "ニホンマムシ（蝮）",
     omikuji_result_name: "凶",
     colors: [
-      { layer: 1, color: "#8B0000", horizontal_line: true, vertical_line: true },
-      { layer: 2, color: "#2F4F4F", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#4B0082", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#800000", horizontal_line: true, vertical_line: true },
-      { layer: "tail-outer", color: "#8B0000", horizontal_line: true, vertical_line: false }
+      { layer: 1, color: "#948060", horizontal_line: false, vertical_line: true },
+      { layer: 2, color: "#948060", horizontal_line: false, vertical_line: true },
+      { layer: 3, color: "#948060", horizontal_line: false, vertical_line: true },
+      { layer: 4, color: "#948060", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#948060", horizontal_line: false, vertical_line: false }
     ]
   }
 ]
