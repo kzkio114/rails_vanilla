@@ -24,9 +24,14 @@
             <% color_data = @snake.snake_colors.find_by(layer: layer) %>
             <div class="rounded-rectangle layer<%= layer %>" 
                 style="background-color: <%= color_data&.color %>">
+                <!-- 丸を表示 -->
+              <% if color_data&.circle %>
+                <div class="layer-circle"></div>
+              <% end %>
               <!-- 横線 -->
               <% if color_data&.horizontal_line %>
                 <div class="layer-horizontal-line"></div>
+                <div class="layer-horizontal-line-2"></div> <!-- 新しい線 -->
               <% end %>
               <!-- 縦線 -->
               <% if color_data&.vertical_line %>

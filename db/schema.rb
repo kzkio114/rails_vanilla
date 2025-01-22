@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_16_140509) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_22_122659) do
   create_table "omikuji_results", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_16_140509) do
     t.datetime "updated_at", null: false
     t.boolean "horizontal_line"
     t.boolean "vertical_line"
+    t.boolean "circle"
     t.index ["snake_id"], name: "index_snake_colors_on_snake_id"
   end
 

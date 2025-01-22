@@ -217,7 +217,18 @@
   /* 横線 */
 .layer-horizontal-line {
   position: absolute;
-  top: 50%; /* レイヤーの中央に配置 */
+  top: 15%; /* レイヤーの中央に配置 */
+  left: 0;
+  width: 100%; /* レイヤー全体に広げる */
+  height: 2px; /* 線の太さ */
+  background-color: #0b0b0b; /* 線の色 */
+  z-index: 3; /* 他のレイヤーより上に配置 */
+}
+
+  /* 横線 */
+.layer-horizontal-line-2 {
+  position: absolute;
+  top: 55%; /* レイヤーの中央に配置 */
   left: 0;
   width: 100%; /* レイヤー全体に広げる */
   height: 2px; /* 線の太さ */
@@ -234,10 +245,34 @@
 }
 
 .layer-vertical-line {
-  width: 14px;
+  width: 10px;
   height: 100%;
   margin: 0 auto; /* 中央揃え */
   background-color: #000000;
   background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒色 */
-  border-radius: 50%;
+}
+
+.layer-circle {
+  position: absolute;
+  top: 50%; /* 親要素の中央に配置 */
+  left: 50%; /* 親要素の中央に配置 */
+  transform: translate(-50%, -50%); /* 中央揃え */
+  width: 80px; /* 外側の丸の幅 */
+  height: 80px; /* 外側の丸の高さ */
+  background-color: rgba(0, 0, 255, 0.2); /* 半透明の青 */
+  border-radius: 50%; /* 丸くする */
+  display: flex; /* 子要素を中央に配置するために使用 */
+  justify-content: center; /* 水平方向中央揃え */
+  align-items: center; /* 垂直方向中央揃え */
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.4); /* ぼかし効果 */
+  z-index: 10; /* 他の要素より前面に表示 */
+}
+
+
+.layer-circle .inner-circle {
+  width: 80px; /* 内側の丸の幅 */
+  height: 80px; /* 内側の丸の高さ */
+  background-color: rgba(255, 0, 0, 0.6); /* 半透明の赤 */
+  border-radius: 50%; /* 丸くする */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4); /* ぼかし効果 */
 }

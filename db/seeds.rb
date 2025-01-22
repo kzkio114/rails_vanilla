@@ -63,11 +63,11 @@ snakes_data = [
     name: "シマヘビ（縞蛇）",
     omikuji_result_name: "中吉",
     colors: [
-      { layer: 1, color: "#2196F3", horizontal_line: true, vertical_line: false },
-      { layer: 2, color: "#1976D2", horizontal_line: true, vertical_line: false },
-      { layer: 3, color: "#1565C0", horizontal_line: true, vertical_line: false },
-      { layer: 4, color: "#0D47A1", horizontal_line: false, vertical_line: false },
-      { layer: "tail-outer", color: "#1565C0", horizontal_line: false , vertical_line: false }
+      { layer: 1, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 2, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 3, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 4, color: "#8E3E1F", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#8E3E1F", horizontal_line: false , vertical_line: false }
     ]
   },
   {
@@ -114,15 +114,15 @@ snakes_data = [
       { layer: "tail-outer", color: "#FFA500", horizontal_line: false, vertical_line: false }
     ]
   },
-  {
+    {
     name: "ニホンマムシ（蝮）",
     omikuji_result_name: "凶",
     colors: [
-      { layer: 1, color: "#948060", horizontal_line: false, vertical_line: true },
-      { layer: 2, color: "#948060", horizontal_line: false, vertical_line: true },
-      { layer: 3, color: "#948060", horizontal_line: false, vertical_line: true },
-      { layer: 4, color: "#948060", horizontal_line: false, vertical_line: false },
-      { layer: "tail-outer", color: "#948060", horizontal_line: false, vertical_line: false }
+      { layer: 1, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 2, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 3, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 4, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: "tail-outer", color: "#948060", horizontal_line: false, vertical_line: false, circle: false }
     ]
   }
 ]
