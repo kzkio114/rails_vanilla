@@ -1,20 +1,36 @@
+/* 初期状態のコンテナ */
 .container {
-  border: 2px solid #dd221f;  /* 緑色の枠線 */
+  border: 2px solid #dd221f; /* 赤色の枠線 */
   border-radius: 10px; /* 角を丸くする */
   padding: 20px; /* 内側の余白 */
   margin: 20px auto; /* 上下マージン、自動で中央寄せ */
   width: 300px; /* コンテナの最大幅 */
-  height: 400px; /* 高さを固定ではなく最小値として設定 */
+  height: 400px; /* 高さを固定 */
   background-color: #f9f9f9; /* 明るい背景色 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+  transition: opacity 1s ease, transform 1s ease, box-shadow 1s ease;
 
   display: flex;
   flex-direction: column; /* 縦方向に要素を並べる */
   justify-content: center; /* 中央揃え（縦方向） */
   align-items: center; /* 中央揃え（横方向） */
-  overflow: hidden; /* 蛇が枠外に出ないようにする */
+  overflow: hidden; /* 枠内に収める */
+  animation: fadeInScale 1.5s ease-out; /* アニメーションを追加 */
 }
 
+/* フレーム挿入時のアニメーション */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* コンテナ内の見出しや段落 */
 .container h2, 
 .container p {
   margin: 10px 0; /* 上下の余白を設定 */
@@ -22,10 +38,16 @@
   color: #333; /* テキスト色 */
 }
 
+/* センターに配置するためのコンテナ */
 .centered-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin-top: 10px;
+}
+
+/* ホバー時の影を強調 */
+.container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ホバー時の影を追加 */
 }

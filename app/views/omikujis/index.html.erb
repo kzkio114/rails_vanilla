@@ -1,6 +1,6 @@
-<%= turbo_frame_tag "result-container" do %>
+<%= turbo_frame_tag "result-container", class: "container" do %>
   <h1>おみくじ結果</h1>
-  <div class="container">
+  <div id="result" class="container">
     <% if @snake %>
       <%= render "result" %>
       <%= render "snake" %>
