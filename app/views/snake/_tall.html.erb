@@ -1,0 +1,14 @@
+<div class="tail-container">
+  <div class="tail-outer" style="background-color: <%= @snake.snake_colors.find_by(layer: 'tail-outer')&.color %>;">
+    <% if @snake.snake_colors.find_by(layer: 'tail-outer')&.horizontal_line %>
+      <div class="layer-horizontal-line"></div>
+    <% end %>
+    <% if @snake.snake_colors.find_by(layer: 'tail-outer')&.vertical_line %>
+      <div class="layer-vertical-line"></div>
+    <% end %>
+  </div>
+    <div class="tail-inner">
+    <div class="tail-inner-cut">
+    </div>
+  </div>
+</div>
