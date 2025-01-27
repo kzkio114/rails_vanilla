@@ -1,0 +1,22 @@
+<% (1..4).each do |layer| %>
+  <% color_data = @snake.snake_colors.find_by(layer: layer) %>
+  <div class="rounded-rectangle layer<%= layer %>"
+      style="background-color: <%= color_data&.color %>">
+    <% if color_data&.circle %>
+      <div class="layer-circle"></div>
+    <% end %>
+    <% if color_data&.horizontal_line %>
+      <div class="layer-horizontal-line"></div>
+      <div class="layer-horizontal-line-2"></div>
+    <% end %>
+    <% if color_data&.vertical_line %>
+      <div class="lines-container">
+        <div class="layer-vertical-line"></div>
+        <div class="layer-vertical-line"></div>
+        <div class="layer-vertical-line"></div>
+        <div class="layer-vertical-line"></div>
+        <div class="layer-vertical-line"></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

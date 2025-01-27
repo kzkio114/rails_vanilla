@@ -2,7 +2,7 @@
   <%= turbo_frame_tag "result-container" do %>
     <h1>ようこそ</h1>
     <h3>今年の干支おみくじ引きますか？🐍</h3>
-      <%= link_to "おみくじを引く", omikujis_path, data: { turbo_frame: "result-container" }, class: "button" %>
+      <%= render "omikujis/pull" %>
     <p>おみくじの結果はボタンを押したら表示されます。</p>
   <% end %>
 </div>
