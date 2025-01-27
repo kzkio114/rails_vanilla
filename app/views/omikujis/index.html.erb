@@ -1,8 +1,14 @@
 <%= turbo_frame_tag "result-container" do %>
-  <% if @snake %>
-    <div>
-      <h2>結果: <%= @snake.omikuji_result.name %></h2>
+  <h1>おみくじ結果</h1>
+  <div class="container">
+    <% if @snake %>
+      <!-- 結果表示 -->
+      <h1><%= @snake.omikuji_result.name %></h1>
+      <%= @snake.name %>
       <p><%= @snake.omikuji_result.description %></p>
+      <%= link_to "おみくじを引き直しますか？", omikujis_path, data: { turbo_frame: "result-container" }, class: "button" %>
+
+      <!-- 蛇の表示 -->
       <div class="centered-container">
         <div class="snake">
           <!-- ヘッド部分 -->
@@ -15,23 +21,53 @@
 
           <!-- トグロ部分 -->
           <% (1..4).each do |layer| %>
+            <% color_data = @snake.snake_colors.find_by(layer: layer) %>
             <div class="rounded-rectangle layer<%= layer %>" 
-                 style="background-color: <%= @snake.snake_colors.find_by(layer: layer)&.color %>"></div>
+                style="background-color: <%= color_data&.color %>">
+                <!-- 丸を表示 -->
+              <% if color_data&.circle %>
+                <div class="layer-circle"></div>
+              <% end %>
+              <!-- 横線 -->
+              <% if color_data&.horizontal_line %>
+                <div class="layer-horizontal-line"></div>
+                <div class="layer-horizontal-line-2"></div> <!-- 新しい線 -->
+              <% end %>
+              <!-- 縦線 -->
+              <% if color_data&.vertical_line %>
+                <div class="lines-container">
+                  <div class="layer-vertical-line"></div>
+                  <div class="layer-vertical-line"></div>
+                  <div class="layer-vertical-line"></div>
+                  <div class="layer-vertical-line"></div>
+                  <div class="layer-vertical-line"></div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
 
           <!-- 尾部分 -->
           <div class="tail-container">
-            <div class="tail-outer" style="background-color: <%= @snake.snake_colors.find_by(layer: 'tail-outer')&.color %>;"></div>
+            <div class="tail-outer" style="background-color: <%= @snake.snake_colors.find_by(layer: 'tail-outer')&.color %>;">
+              <!-- 尾の横線 -->
+              <% if @snake.snake_colors.find_by(layer: 'tail-outer')&.horizontal_line %>
+                <div class="layer-horizontal-line"></div>
+              <% end %>
+              <!-- 尾の縦線 -->
+              <% if @snake.snake_colors.find_by(layer: 'tail-outer')&.vertical_line %>
+                <div class="layer-vertical-line"></div>
+              <% end %>
+            </div>
             <div class="tail-inner">
               <div class="tail-inner-cut">
-                <div class="tail-text"><%= @snake.omikuji_result.name %></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% else %>
-    <p>蛇のデータがありません。</p>
-  <% end %>
+    <% else %>
+      <p>蛇のデータがありません。</p>
+    <% end %>
+    <%= link_to "ホームに戻る？", root_path, data: { turbo_frame: "result-container" }, class: "button" %>
+  </div>
 <% end %>

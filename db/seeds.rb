@@ -10,9 +10,11 @@
 
 # おみくじ結果を作成
 omikuji_results = [
+  { name: "大大吉", description: "かなり珍しい良い運勢です！" },
   { name: "大吉", description: "非常に良い運勢です！" },
   { name: "中吉", description: "良いことが起こりそうです。" },
   { name: "小吉", description: "少しだけ良いことがあるかも。" },
+  { name: "吉", description: "控えめな良い運勢です。" },
   { name: "凶", description: "注意が必要です。" },
 ]
 
@@ -25,47 +27,102 @@ end
 # 蛇のデータを作成
 snakes_data = [
   {
-    name: "緑の蛇",
+    name: "アオダイショウ（アルビノ）",
+    omikuji_result_name: "大大吉",
+    colors: [
+      { layer: 1, color: "#FFFFFF", horizontal_line: false, vertical_line: false},
+      { layer: 2, color: "#FFFFFF", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#FFFFFF", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#FFFFFF", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#FFFFFF", horizontal_line: false, vertical_line: false }
+    ]
+  },
+  {
+    name: "アオダイショウ（青大将）",
     omikuji_result_name: "大吉",
     colors: [
-      { layer: 1, color: "#4CAF50" },
-      { layer: 2, color: "#3e8e41" },
-      { layer: 3, color: "#2e7d32" },
-      { layer: 4, color: "#1b5e20" },
-      { layer: "tail-outer", color: "#1b5e20" } # 修正
+      { layer: 1, color: "#4CAF50", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#3e8e41", horizontal_line: false, vertical_line: false},
+      { layer: 3, color: "#2e7d32", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#1b5e20", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#2e7d32", horizontal_line: false, vertical_line: false }
     ]
   },
   {
-    name: "青の蛇",
+    name: "シロマダラ（白斑）",
+    omikuji_result_name: "大吉",
+    colors: [
+      { layer: 1, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 2, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 3, color: "#FFFF", horizontal_line: false, vertical_line: true },
+      { layer: 4, color: "#FFFF", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#FFFF", horizontal_line: false, vertical_line: false}
+    ]
+  },
+  {
+    name: "シマヘビ（縞蛇）",
     omikuji_result_name: "中吉",
     colors: [
-      { layer: 1, color: "#2196F3" },
-      { layer: 2, color: "#1976D2" },
-      { layer: 3, color: "#1565C0" },
-      { layer: 4, color: "#0D47A1" },
-      { layer: "tail-outer", color: "#0D47A1" } # 修正
+      { layer: 1, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 2, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 3, color: "#8E3E1F", horizontal_line: true, vertical_line: false },
+      { layer: 4, color: "#8E3E1F", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#8E3E1F", horizontal_line: false , vertical_line: false }
     ]
   },
   {
-    name: "赤の蛇",
+    name: "ジムグリ（地潜）",
+    omikuji_result_name: "中吉",
+    colors: [
+      { layer: 1, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#6A3427", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#6A3427", horizontal_line: false, vertical_line: false }
+    ]
+  },
+  {
+    name: "タカチホヘビ（高千穂蛇）",
     omikuji_result_name: "小吉",
     colors: [
-      { layer: 1, color: "#F44336" },
-      { layer: 2, color: "#E53935" },
-      { layer: 3, color: "#D32F2F" },
-      { layer: 4, color: "#B71C1C" },
-      { layer: "tail-outer", color: "#B71C1C" } # 修正
+      { layer: 1, color: "#333132", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#333132", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#333132", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#333132", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#333132", horizontal_line: false, vertical_line: false }
     ]
   },
   {
-    name: "黄色の蛇",
+    name: "ヒバカリ（日計）",
+    omikuji_result_name: "小吉",
+    colors: [
+      { layer: 1, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#958C59", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#958C59", horizontal_line: false, vertical_line: false }
+    ]
+  },
+  {
+    name: "ヤマカガシ（山楝蛇）",
+    omikuji_result_name: "吉",
+    colors: [
+      { layer: 1, color: "#FF4500", horizontal_line: false, vertical_line: false },
+      { layer: 2, color: "#FFD700", horizontal_line: false, vertical_line: false },
+      { layer: 3, color: "#FFA500", horizontal_line: false, vertical_line: false },
+      { layer: 4, color: "#FF6347", horizontal_line: false, vertical_line: false },
+      { layer: "tail-outer", color: "#FFA500", horizontal_line: false, vertical_line: false }
+    ]
+  },
+    {
+    name: "ニホンマムシ（蝮）",
     omikuji_result_name: "凶",
     colors: [
-      { layer: 1, color: "#FFEB3B" },
-      { layer: 2, color: "#FBC02D" },
-      { layer: 3, color: "#F9A825" },
-      { layer: 4, color: "#F57F17" },
-      { layer: "tail-outer", color: "#F57F17" } # 修正
+      { layer: 1, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 2, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 3, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: 4, color: "#948060", horizontal_line: false, vertical_line: false, circle: true },
+      { layer: "tail-outer", color: "#948060", horizontal_line: false, vertical_line: false, circle: false }
     ]
   }
 ]
@@ -77,9 +134,11 @@ snakes_data.each do |snake_data|
   snake_data[:colors].each do |color_data|
     SnakeColor.find_or_create_by!(snake: snake, layer: color_data[:layer]) do |snake_color|
       snake_color.color = color_data[:color]
+      snake_color.horizontal_line = color_data[:horizontal_line]
+      snake_color.vertical_line = color_data[:vertical_line]
+      snake_color.save!
     end
   end
 end
 
-
-puts "Seeding completed successfully!"
+puts "seedが完了しました！"
