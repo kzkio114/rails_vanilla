@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :omikujis, only: [:index]
-  #get "omikujis/index"
-  #get "tops/index"
   root "tops#index"
+  get "reset", to: "omikujis#reset", as: :reset
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
