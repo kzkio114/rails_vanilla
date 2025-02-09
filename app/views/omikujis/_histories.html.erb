@@ -1,0 +1,13 @@
+<h2>履歴（最大3件）</h2>
+<% if @saved_histories.any? %>
+  <ul>
+    <% @saved_histories.each do |history| %>
+      <li>
+        <strong><%= history.snake.omikuji_result.name %></strong>:
+        <%= history.snake.omikuji_result.description %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>保存された履歴がありません。</p>
+<% end %>
