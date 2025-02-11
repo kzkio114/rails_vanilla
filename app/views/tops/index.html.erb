@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <%= turbo_frame_tag "result-container" do %>
+  <div id="omikuji-result">
     <h1>ようこそ</h1>
     <h3>今年の干支おみくじ引きますか？🐍</h3>
       <%= render "omikujis/pull" %>
     <p>おみくじの結果はボタンを押したら表示されます。</p>
-  <% end %>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :omikujis, only: [:index]
   root "tops#index"
-  get "draw", to: "omikujis#draw", as: :draw
+  resources :omikujis, only: [:index, :create]
   get "reset", to: "omikujis#reset", as: :reset
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

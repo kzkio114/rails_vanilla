@@ -1,5 +1,5 @@
 <h2>履歴（最大3件）</h2>
-<% if @saved_histories.any? %>
+<% if saved_histories.present? %>
   <ul>
     <% @saved_histories.each do |history| %>
       <li>
@@ -11,3 +11,4 @@
 <% else %>
   <p>保存された履歴がありません。</p>
 <% end %>
+<%= render "button/reset" %>
