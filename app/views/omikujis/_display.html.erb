@@ -1,13 +1,17 @@
-<h1>おみくじ結果</h1>
-  <div id="omikuji-result" class="container">
+<div id="omikuji-result">
+    <h1>おみくじ結果</h1>
+    <div class="container">
     <% if @snake %>
       <%= render "result" %>
       <%= render "snake" %>
     <% else %>
       <p>蛇のデータがありません。</p>
     <% end %>
+    <%= render "omikujis/pull" %>
 </div>
 
 <div id ="history-list">
     <%= render "omikujis/history", saved_histories: @saved_histories %>
 </div>
+
+<%= render "tops/home" %>
