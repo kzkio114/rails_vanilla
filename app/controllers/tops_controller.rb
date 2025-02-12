@@ -1,5 +1,5 @@
 class TopsController < ApplicationController
   def index
-    @recent_histories = OmikujiHistory.includes(:snake).order(created_at: :desc).limit(10)
+    @saved_histories = OmikujiHistory.order(created_at: :desc).limit(10)
   end
 end

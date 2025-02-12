@@ -6,7 +6,7 @@ class OmikujisController < ApplicationController
     session[:snake_id] = @snake.id
     OmikujiHistory.create!(snake: @snake)
 
-    OmikujiHistory.order(created_at: :asc).limit(OmikujiHistory.count - 3).destroy_all if OmikujiHistory.count > 3
+    OmikujiHistory.order(created_at: :asc).limit(OmikujiHistory.count - 10).destroy_all if OmikujiHistory.count > 10
 
     respond_to do |format|
       format.turbo_stream

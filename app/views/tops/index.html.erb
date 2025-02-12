@@ -4,5 +4,11 @@
     <h3>今年の干支おみくじ引きますか？🐍</h3>
       <%= render "omikujis/pull" %>
     <p>おみくじの結果はボタンを押したら表示されます。</p>
+    <h1>最近の占い結果</h1>
+    <div id="history-list">
+      <%= render partial: "omikujis/history", locals: { saved_histories: @saved_histories } %>
+    </div>
+    <%= render "tops/home" %>
   <% end %>
 </div>
+

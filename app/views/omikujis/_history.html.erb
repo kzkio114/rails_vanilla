@@ -1,6 +1,7 @@
+<%= turbo_stream_from "history-list" %>
 <h2>履歴（最大3件）</h2>
-<% if saved_histories.present? %>
-  <ul>
+<% if @saved_histories.present? %>
+  <ul id="history-list">
     <% @saved_histories.each do |history| %>
       <li>
         <strong><%= history.snake.omikuji_result.name %></strong>:
@@ -11,4 +12,5 @@
 <% else %>
   <p>保存された履歴がありません。</p>
 <% end %>
+
 <%= render "omikujis/reset" %>
