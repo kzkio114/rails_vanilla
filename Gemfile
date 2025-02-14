@@ -64,4 +64,4 @@ group :test do
 end
 
 # 警告回避用
-gem "stringio", "3.1.2"
+gem "stringio", "3.1.3"
