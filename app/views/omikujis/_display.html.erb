@@ -10,8 +10,20 @@
     <%= render "omikujis/pull" %>
 </div>
 
-<div id ="history-list">
-    <%= render "omikujis/history", saved_histories: @saved_histories %>
+<div id="my-history-list">
+  <h2>あなたの占い履歴（最大5件）</h2>
+  <% if @my_histories.any? %>
+    <ul>
+      <% @my_histories.each do |history| %>
+        <li>
+          <strong><%= history.snake.omikuji_result.name %></strong>:
+          <%= history.snake.omikuji_result.description %> (<%= history.created_at.strftime('%Y-%m-%d %H:%M') %>)
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>あなたの履歴がありません。</p>
+  <% end %>
 </div>
 
 <%= render "tops/home" %>
