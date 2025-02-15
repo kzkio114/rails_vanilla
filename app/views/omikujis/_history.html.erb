@@ -1,0 +1,17 @@
+<div id="history-list">
+  <h2>履歴（最大10件）</h2>
+  <% if OmikujiHistory.recent.any? %>
+    <ul>
+      <% OmikujiHistory.recent.each do |history| %>
+        <li>
+          <strong><%= history.snake.omikuji_result.name %></strong>:
+          <%= history.snake.omikuji_result.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>保存された履歴がありません。</p>
+  <% end %>
+
+  <%= render "omikujis/reset" %>
+</div>

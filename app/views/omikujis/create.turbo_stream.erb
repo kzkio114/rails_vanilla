@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "omikuji-result" do %>
+  <%= render "omikujis/display", snake: @snake %>
+<% end %>
+
+<%= turbo_stream.replace "history-list" do %>
+  <%= render "omikujis/history", saved_histories: @saved_histories %>
+<% end %>

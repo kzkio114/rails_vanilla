@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_22_122659) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_28_134522) do
+  create_table "omikuji_histories", force: :cascade do |t|
+    t.integer "snake_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["snake_id"], name: "index_omikuji_histories_on_snake_id"
+  end
+
   create_table "omikuji_results", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -38,6 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_22_122659) do
     t.index ["omikuji_result_id"], name: "index_snakes_on_omikuji_result_id"
   end
 
+  add_foreign_key "omikuji_histories", "snakes"
   add_foreign_key "snake_colors", "snakes"
   add_foreign_key "snakes", "omikuji_results"
 end

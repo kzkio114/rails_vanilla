@@ -19,4 +19,8 @@
   background-color: #dd221f; /* クリック時の色 */
 }
 
+.button-group {
+  display: flex;
+  gap: 10px; /* ボタン間の間隔を設定 */
+}
 
