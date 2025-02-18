@@ -1,0 +1,33 @@
+.omikuji-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* ボタンを中央配置 */
+}
+
+.omikuji-button {
+  writing-mode: vertical-rl; /* 縦書き */
+  font-size: 24px;
+  padding: 15px 10px;
+  border: 2px solid #333;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 50px;
+  transition: transform 0.3s ease-in-out, background 0.3s;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.omikuji-button:hover {
+  transform: scale(1.2) rotate(10deg); /* ホバー時に拡大＆回転 */
+  background: #ffeb3b;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}

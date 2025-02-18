@@ -7,11 +7,9 @@
     <% else %>
       <p>蛇のデータがありません。</p>
     <% end %>
-    <%= render "omikujis/pull" %>
+    <button class="button">おみくじを引く</button>
 </div>
 
-<div id ="history-list">
-    <%= render "omikujis/history", saved_histories: @saved_histories %>
-</div>
+<%= render partial: "my_history", locals: { saved_histories: @my_histories } %>
 
 <%= render "tops/home" %>
