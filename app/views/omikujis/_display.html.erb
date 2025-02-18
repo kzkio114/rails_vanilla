@@ -7,7 +7,7 @@
     <% else %>
       <p>蛇のデータがありません。</p>
     <% end %>
-    <%= render "pull" %>
+    <button class="button">おみくじを引く</button>
 </div>
 
 <%= render partial: "my_history", locals: { saved_histories: @my_histories } %>
