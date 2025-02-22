@@ -62,6 +62,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-# 警告回避用
-gem "stringio", "3.1.5"
