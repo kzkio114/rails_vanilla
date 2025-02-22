@@ -1,6 +1,6 @@
 <div id="history-list">
   <h2>履歴（最大10件）</h2>
-  <% if OmikujiHistory.recent.any? %>
+  <% if OmikujiHistory.recent.present? %>
     <ul>
       <% OmikujiHistory.recent.each do |history| %>
         <li>
