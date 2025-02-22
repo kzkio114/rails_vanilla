@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 250px;
+  height: 210px;
   width: 50px;
   transition: transform 0.3s ease-in-out, background 0.3s;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@
 }
 
 .omikuji-button:hover {
-  transform: scale(1.2) rotate(10deg); /* ホバー時に拡大＆回転 */
-  background: #ffeb3b;
+  transform: scale(1.3) rotate(0deg); /* ホバー時に拡大＆回転 */
+  background: #ff453b;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
