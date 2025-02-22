@@ -1,14 +1,15 @@
 <h2>あなたの占い結果（最大5件）</h2>
-<% if @my_histories.any? %>
-  <ul>
-    <% @my_histories.each do |history| %>
-      <li>
-        <strong><%= history.snake.omikuji_result.name %></strong>:
-        <%= history.snake.omikuji_result.description %> (<%= history.created_at.strftime('%Y-%m-%d %H:%M') %>)
-      </li>
+  <div class="omikuji-list">
+    <% if @my_histories.present? %>
+      <% @my_histories.each do |history| %>
+        <p class="omikuji-item">
+          <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
+          <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
+          <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
+        </p>
     <% end %>
-  </ul>
-<% else %>
+    </div>
+  <% else %>
   <p>あなたの履歴がありません。</p>
 <% end %>
-<%= render "omikujis/reset" %>
+</div>

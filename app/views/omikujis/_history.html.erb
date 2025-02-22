@@ -1,15 +1,16 @@
 <div id="history-list">
-  <h2>履歴（最大10件）</h2>
-  <% if OmikujiHistory.recent.present? %>
-    <ul>
-      <% OmikujiHistory.recent.each do |history| %>
-        <li>
-          <strong><%= history.snake.omikuji_result.name %></strong>:
-          <%= history.snake.omikuji_result.description %>
-        </li>
+  <h2>最大10件表示</h2>
+    <div class="omikuji-list">
+      <% if OmikujiHistory.recent.present? %>
+        <% OmikujiHistory.recent.each do |history| %>
+          <p class="omikuji-item">
+            <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
+            <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
+            <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
+          </p>
       <% end %>
-    </ul>
+    </div>
   <% else %>
-    <p>保存された履歴がありません。</p>
+    <p class="omikuji-no-history">保存された履歴がありません。</p>
   <% end %>
 </div>
