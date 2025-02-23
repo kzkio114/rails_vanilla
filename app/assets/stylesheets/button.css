@@ -21,6 +21,7 @@
 
 .button-group {
   display: flex;
-  gap: 10px; /* ボタン間の間隔を設定 */
+  justify-content: center;
+  gap: 10px;
 }
 
