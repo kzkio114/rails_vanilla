@@ -10,9 +10,4 @@
     <%= render "omikujis/pull" %>
 </div>
 
-<%= render partial: "my_history", locals: { saved_histories: @my_histories } %>
-
-<div class="top">
-  <%= render "omikujis/reset" %>
-  <%= render "tops/home" %>
-</div>
+<%= render "omikujis/history", my_history: true %>
