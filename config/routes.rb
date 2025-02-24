@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "tops#index"
-  resources :omikujis, only: %i[create] do
+  resources :omikujis, only: %i[index create] do
     collection do
       post :reset
     end
