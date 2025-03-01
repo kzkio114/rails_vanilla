@@ -1,15 +1,32 @@
-<div id="history-list">
-  <h2>履歴（最大10件）</h2>
-  <% if OmikujiHistory.recent.any? %>
-    <ul>
-      <% OmikujiHistory.recent.each do |history| %>
-        <li>
-          <strong><%= history.snake.omikuji_result.name %></strong>:
-          <%= history.snake.omikuji_result.description %>
-        </li>
-      <% end %>
-    </ul>
+<% if local_assigns[:my_history] %>
+  <h2 class="omikuji-title">🔮 あなたの占い結果（最大5件） 🔮</h2>
+  <% histories = @my_histories %>
+<% else %>
+  <div id="history-list">
+    <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
+    <% histories = OmikujiHistory.recent %>
+<% end %>
+
+<div class="omikuji-list">
+  <% if histories.present? %>
+    <% histories.each do |history| %>
+      <p class="omikuji-item">
+        <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
+        <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
+        <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
+      </p>
+    <% end %>
   <% else %>
-    <p>保存された履歴がありません。</p>
+    <p class="omikuji-no-history">
+      <%= local_assigns[:my_history] ? "あなたの履歴がありません。" : "保存された履歴がありません。" %>
+    </p>
   <% end %>
+</div>
+
+<% if local_assigns[:my_history] %>
+  <div class="button-group top">
+    <%= render "omikujis/reset" %>
+    <%= render "tops/home" %>
+  </div>
+<% end %>
 </div>

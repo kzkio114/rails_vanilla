@@ -1,5 +1,7 @@
 class OmikujisController < ApplicationController
-  before_action :set_saved_histories, only: %i[create reset]
+  before_action :set_saved_histories, only: %i[index create reset]
+
+  def index;end
 
   def create
     @snake = Snake.random_snake

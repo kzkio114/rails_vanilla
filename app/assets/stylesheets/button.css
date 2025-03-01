@@ -1,7 +1,7 @@
 .button {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #dd221f; /* ボタンの背景色 */
+  background-color: #dd221f;
   color: white; /* 文字色 */
   text-decoration: none; /* 下線を消す */
   border-radius: 5px; /* 角を丸くする */
@@ -21,6 +21,7 @@
 
 .button-group {
   display: flex;
-  gap: 10px; /* ボタン間の間隔を設定 */
+  justify-content: center;
+  gap: 10px;
 }
 

@@ -1,14 +1,10 @@
 <div class="wrapper">
-  <%= turbo_frame_tag "omikuji-result" do %>
+  <%= turbo_frame_tag "omikuji-middle" do %>
     <h1>ようこそ</h1>
     <h3>今年の干支おみくじ引きますか？🐍</h3>
-    <div class="omikuji-container">
-    <% 5.times do %>
-      <%= render "omikujis/pull" %>
-    <% end %>
-    </div>
+      <%= render "omikuji" %>
     <p>おみくじの結果はボタンを押したら表示されます。</p>
-    <h1>最近の占い結果</h1>
+    <h1>みんなの占い結果</h1>
     <%= turbo_stream_from "history-list" %>
     <div id="history-list">
       <%= render partial: "omikujis/history", locals: { saved_histories: @saved_histories } %>
