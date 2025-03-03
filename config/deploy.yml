@@ -2,7 +2,7 @@
 service: omikuji
 
 # Docker イメージの設定（Fly.io のレジストリ）
-image: registry.fly.io/omikuji
+image: omikuji
 
 # Fly.io のデプロイ先
 servers:
