@@ -1,0 +1,5 @@
+dbs:
+  - path: /data/production.sqlite3
+    replicas:
+      - type: file
+        path: /data/production-backup.sqlite3
