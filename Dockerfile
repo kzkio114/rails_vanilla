@@ -20,5 +20,7 @@ RUN gem install bundler && bundle install
 
 COPY . /app
 
+EXPOSE 8080
+
 # Rails サーバを起動（$PORT 環境変数を適用）
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
