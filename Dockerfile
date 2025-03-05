@@ -24,4 +24,5 @@ COPY . /app
 EXPOSE 4000
 
 # Rails サーバを起動（$PORT 環境変数を適用）
-CMD ["sh", "-c", "rails server -b 0.0.0.0 -p 4000"]
+CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
+
