@@ -7,6 +7,7 @@ console_command = '/rails/bin/rails console'
 [build]
 
 [env]
+  RAILS_HOSTS = "omikuji.fly.dev"
   DATABASE_URL = 'sqlite3:///data/production.sqlite3'
   PORT = '8080'
 
