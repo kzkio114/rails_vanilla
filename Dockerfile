@@ -20,9 +20,5 @@ RUN gem install bundler && bundle install
 
 COPY . /app
 
-# ポートを公開（Cloud Run は 8080 をデフォルトで使用）
-EXPOSE 4000
-
 # Rails サーバを起動（$PORT 環境変数を適用）
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
-
