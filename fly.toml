@@ -1,7 +1,4 @@
-# fly.toml app configuration file generated for omikuji on 2025-03-04T23:16:51+09:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# fly.toml app configuration file for omikuji
 
 app = 'omikuji'
 primary_region = 'nrt'
@@ -11,10 +8,10 @@ console_command = '/rails/bin/rails console'
 
 [env]
   DATABASE_URL = 'sqlite3:///data/production.sqlite3'
-  PORT = '8080'
+  PORT = '4000'
 
 [processes]
-  app = "./bin/rails server"
+  app = "./bin/rails server -b 0.0.0.0 -p 4000"
 
 [[mounts]]
   source = 'data'
