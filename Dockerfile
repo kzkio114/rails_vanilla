@@ -20,6 +20,8 @@ RUN gem install bundler && bundle install
 
 COPY . /app
 
+ENV PORT=8080
+
 EXPOSE 8080
 
 # Rails サーバを起動（$PORT 環境変数を適用）
