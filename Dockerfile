@@ -1,4 +1,4 @@
-# Dockerfile
+# ベースイメージ
 FROM ruby:3.3.6
 
 # 必要なパッケージをインストール
@@ -12,19 +12,25 @@ RUN apt-get update -qq \
 # Rails をインストール
 RUN gem install rails
 
+# 作業ディレクトリを設定
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock /app/
-
-RUN gem install bundler && bundle install
-
-COPY . /app
-
+# 環境変数を設定
 ENV APP_HOST="omikuji-414350596159.asia-northeast1.run.app"
-
 ENV PORT=8080
 
+# Gemfile をコピー
+COPY Gemfile Gemfile.lock /app/
+
+# Bundler をインストール
+RUN gem install bundler && bundle install
+
+# アプリのコードをコピー
+COPY . /app
+
+# ポートを公開
 EXPOSE 8080
 
-# Rails サーバを起動（$PORT 環境変数を適用）
-CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
+# Rails サーバを起動（マイグレーションを実行してから）
+CMD ["sh", "-c", "bin/rails db:migrate && bin/rails db:seed && exec bundle exec rails server -b 0.0.0.0 -p $PORT"]
+
