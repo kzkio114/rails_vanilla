@@ -20,6 +20,8 @@ RUN gem install bundler && bundle install
 
 COPY . /app
 
+ENV APP_HOST="omikuji-414350596159.asia-northeast1.run.app"
+
 ENV PORT=8080
 
 EXPOSE 8080

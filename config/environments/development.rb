@@ -3,7 +3,7 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.hosts << ENV.fetch("RAILS_ALLOWED_HOST", "omikuji.fly.dev")
-  config.hosts << ENV.fetch("CLOUD_RUN_HOST", "omikuji-574074217329.asia-northeast1.run.app")
+  config.hosts << ENV.fetch("APP_HOST", "localhost")
 
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
