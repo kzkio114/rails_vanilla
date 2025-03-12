@@ -10,6 +10,7 @@ Rails.application.configure do
   config.eager_load = true
 
   config.hosts << "omikuji.fly.dev"
+  config.hosts << "omikuji-414350596159.asia-northeast1.run.app"
 
   # Full error reports are disabled.
   config.consider_all_requests_local = false
