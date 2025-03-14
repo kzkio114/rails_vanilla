@@ -1,0 +1,15 @@
+<div id="modal" class="modal <%= css_class %>">
+  <div class="omikuji-container" id ="omikuji-result">
+    <% 5.times do %>
+    <%= render "omikujis/pull" %>
+  <%end%>
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <h2 class="title">ランダムモーダル</h2>
+    <p>このモーダルはランダムなスタイルが適用されます。</p>
+    
+  </div>
+
+    <%= button_to "閉じる", modal_path, method: :delete, data: { turbo_frame: "modal" }, class: "button is-danger" %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "tops#index"
-  
-  resource :modal, only: [:show, :destroy]
+
+  resource :modal, only: [:show, :create, :destroy]
 
   resources :omikujis, only: %i[index create] do
     collection do

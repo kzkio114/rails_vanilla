@@ -1,1 +1,2 @@
 <%= link_to "おみくじ", omikujis_path, data: { turbo_frame: "omikuji-middle" }, class: "button-middle" %>
+<%= button_to "おみくじ", modal_path, method: :post, data: { turbo_stream: "modal" }, class: "button-middle" %>
