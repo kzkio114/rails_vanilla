@@ -1,11 +1,10 @@
-/* 全体を中央揃えにするスタイル */
 .wrapper {
   display: flex;
-  justify-content: center; /* 水平方向の中央揃え */
-  align-items: center; /* 垂直方向の中央揃え */
-  height: 100vh; /* ビューポート全体の高さ */
-  flex-direction: column; /* 縦に要素を並べる */
-  text-align: center; /* テキストを中央揃え */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
   background-color: #f0f8ff;
-  margin: 0; /* デフォルトのマージンをリセット */
+  margin: 0;
 }
