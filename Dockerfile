@@ -17,7 +17,7 @@ RUN apt-get update -qq && \
 RUN gem install bundler --no-document && \
     gem install rails --no-document
 
-ENV PORT=4000
+ENV PORT=3000
 
 # 作業ディレクトリ
 WORKDIR /app
@@ -32,7 +32,7 @@ COPY . /app
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:4000/up || exit 1
 
-EXPOSE 4000
+EXPOSE 3000
 
 # 起動処理
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
