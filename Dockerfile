@@ -29,9 +29,6 @@ RUN bundle install --jobs=4 --retry=3
 # アプリケーション全体をコピー
 COPY . /app
 
-# DB セットアップ (重要)
-RUN RAILS_ENV=production bundle exec rails db:setup
-
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:3000/up || exit 1
 
