@@ -11,7 +11,9 @@ Rails.application.configure do
 
   config.hosts << "omikuji.fly.dev"
 
-  config.hosts << "35.185.215.236"  # VMのIPを許可
+
+  config.hosts << ENV.fetch("APP_HOST", "35.185.215.236")
+  config.hosts << IPAddr.new("0.0.0.0/0")
 
 
   # Full error reports are disabled.
