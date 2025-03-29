@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "tops#index"
 
+  get "up" => "rails/health#show", as: :rails_health_check
+
   resource :modal, only: [:show, :create, :destroy]
 
   resources :omikujis, only: %i[index create] do
