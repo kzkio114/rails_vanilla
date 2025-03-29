@@ -30,7 +30,7 @@ RUN bundle install --jobs=4 --retry=3
 COPY . /app
 
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
-  CMD curl -f http://localhost:4000/up || exit 1
+  CMD curl -f http://localhost:3000/up || exit 1
 
 EXPOSE 3000
 
