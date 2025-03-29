@@ -11,6 +11,9 @@ Rails.application.configure do
 
   config.hosts << "omikuji.fly.dev"
 
+  config.hosts << "35.185.215.236"  # VMのIPを許可
+
+
   # Full error reports are disabled.
   config.consider_all_requests_local = false
 
