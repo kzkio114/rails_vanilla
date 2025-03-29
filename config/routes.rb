@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/up", to: "rails/health#show"
+  get "/up", to: proc { [200, { "Content-Type" => "text/plain" }, ["OK"]] }
   
   root "tops#index"
 
