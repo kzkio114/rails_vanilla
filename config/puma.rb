@@ -41,5 +41,8 @@ plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"]
 # In other environments, only set the PID file if requested.
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
 
-workers ENV.fetch("WEB_CONCURRENCY", 0).to_i if ENV.fetch("WEB_CONCURRENCY", 0).to_i > 0
+workers_count = Integer(ENV.fetch("WEB_CONCURRENCY", "0"))
 
+if workers_count > 0
+  workers workers_count
+end
