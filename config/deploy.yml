@@ -27,7 +27,7 @@ env:
     RAILS_ENV: production
     RAILS_MAX_THREADS: 1
     WEB_CONCURRENCY: 0
-    PORT: 4000
+    PORT: 3000
     HOST: 0.0.0.0
     DATABASE_URL: sqlite3:/app/storage/production.sqlite3
 
