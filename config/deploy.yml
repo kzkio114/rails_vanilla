@@ -23,11 +23,10 @@ env:
     - R2_ENDPOINT
     - R2_BUCKET
     - AWS_REGION
-    - PORT
-    - DATABASE_URL
   clear:
     RAILS_ENV: production
     PORT: 4000
+    HOST: 0.0.0.0
     DATABASE_URL: sqlite3:/app/storage/production.sqlite3
 
 volumes:
