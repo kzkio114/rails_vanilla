@@ -30,5 +30,7 @@ RUN bundle install --jobs=4 --retry=3
 # アプリケーション全体をコピー
 COPY . /app
 
+HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 CMD curl -f http://localhost:4000/up || exit 1
+
 # 起動処理
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
