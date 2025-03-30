@@ -1,7 +1,5 @@
 FROM ruby:3.3.6
 
-ENV RAILS_ENV=production
-ENV RAILS_SERVE_STATIC_FILES=true
 ENV PORT=80
 
 # 必要なパッケージと gsutil のインストール
@@ -25,8 +23,6 @@ COPY Gemfile Gemfile.lock /app/
 RUN bundle install --jobs=4 --retry=3
 
 COPY . /app
-
-RUN bundle exec rails assets:precompile
 
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:$PORT/up || exit 1
