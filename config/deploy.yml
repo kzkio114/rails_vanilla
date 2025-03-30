@@ -6,7 +6,7 @@ servers:
     hosts:
       - 35.185.215.236
     options:
-      health-cmd: curl -f http://localhost:3000/up || exit 1
+      health-cmd: curl -f http://localhost:80/up || exit 1
       health-start-period: 90s
       health-interval: 5s
       health-timeout: 5s
@@ -22,7 +22,7 @@ registry:
     - KAMAL_REGISTRY_JSON
 
 proxy:
-  app_port: 3000   # ← これを追加！
+  app_port: 80
 
 env:
   secret:
@@ -38,7 +38,7 @@ env:
     RAILS_ENV: production
     RAILS_MAX_THREADS: 1
     WEB_CONCURRENCY: 0
-    PORT: 3000
+    PORT: 80
     HOST: 0.0.0.0
     DATABASE_URL: sqlite3:/app/storage/production.sqlite3
 

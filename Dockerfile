@@ -1,6 +1,5 @@
 FROM ruby:3.3.6
 
-# 必要なパッケージ
 # 必要なパッケージと gsutil のインストール
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
@@ -11,7 +10,6 @@ RUN apt-get update -qq && \
     ./google-cloud-sdk/bin/gcloud components install gsutil --quiet && \
     mv google-cloud-sdk /opt/ && \
     ln -s /opt/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil
-
 
 # Bundler & Rails
 RUN gem install bundler --no-document && \
@@ -30,9 +28,9 @@ RUN bundle install --jobs=4 --retry=3
 COPY . /app
 
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
-  CMD curl -f http://localhost:3000/up || exit 1
+  CMD curl -f http://localhost:80/up || exit 1
 
-EXPOSE 3000
+EXPOSE 80
 
 # 起動処理
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
