@@ -17,7 +17,11 @@ Rails.application.configure do
   config.hosts << "巳おみくじ.jp"
   config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
   config.action_cable.url = "wss://xn--t8jk1a7l204u.jp/cable"
-  config.action_cable.allowed_request_origins = [ "https://xn--t8jk1a7l204u.jp", "https://巳おみくじ.jp" ]
+  config.action_cable.allowed_request_origins = [
+  "https://xn--t8jk1a7l204u.jp",
+  "https://巳おみくじ.jp",
+  "https://www.xn--t8jk1a7l204u.jp"
+  ]
 
 
   # Full error reports are disabled.
