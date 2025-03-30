@@ -17,7 +17,7 @@ RUN apt-get update -qq && \
 RUN gem install bundler --no-document && \
     gem install rails --no-document
 
-ENV PORT=3000
+ENV PORT=80
 
 # 作業ディレクトリ
 WORKDIR /app
