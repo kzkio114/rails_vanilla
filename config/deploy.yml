@@ -23,7 +23,8 @@ registry:
 
 proxy:
   app_port: 80
-  https: true
+  ssl: true
+  host: xn--l8j9epva5821a.jp # ← punycode表記
 
 env:
   secret:
