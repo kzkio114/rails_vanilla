@@ -7,11 +7,10 @@ servers:
       - 35.185.215.236
     options:
       health-cmd: curl -f http://localhost:3000/up || exit 1
-      health-start-period: 15s
+      health-start-period: 90s
       health-interval: 5s
       health-timeout: 5s
       health-retries: 5
-      health-start-period: 90s
 
 ssh:
   user: kzkio
