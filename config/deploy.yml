@@ -3,7 +3,13 @@ image: omikuji-vm/my-rails-app/omikuji
 
 servers:
   web:
-    - 35.185.215.236
+    hosts:
+      - 35.185.215.236
+    options:
+      health-start-period: 10s
+      health-interval: 5s
+      health-timeout: 5s
+      health-retries: 5
 
 ssh:
   user: kzkio
