@@ -23,6 +23,7 @@ registry:
 
 proxy:
   app_port: 80
+  https: true
 
 env:
   secret:
