@@ -1,7 +1,5 @@
 FROM ruby:3.3.6
 
-ENV PORT=80
-
 # 必要なパッケージと gsutil のインストール
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
@@ -16,6 +14,8 @@ RUN apt-get update -qq && \
 # Bundler & Rails
 RUN gem install bundler --no-document && \
     gem install rails --no-document
+
+ENV PORT=80
 
 # 作業ディレクトリ
 WORKDIR /app

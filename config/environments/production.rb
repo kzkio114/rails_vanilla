@@ -17,9 +17,6 @@ Rails.application.configure do
   config.hosts << "巳おみくじ.jp"
   config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
 
-  #config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
-
   # Full error reports are disabled.
   config.consider_all_requests_local = false
 
