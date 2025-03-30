@@ -15,7 +15,7 @@ Rails.application.configure do
   config.hosts << ENV.fetch("APP_HOST", "35.185.215.236")
   config.hosts << IPAddr.new("0.0.0.0/0")
   config.hosts << "巳おみくじ.jp"
-  config.hosts << "xn--l8j9epva5821a.jp" # ← punycode表記 (任意)
+  config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
 
 
   # Full error reports are disabled.
