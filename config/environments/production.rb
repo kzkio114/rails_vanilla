@@ -17,6 +17,8 @@ Rails.application.configure do
   config.hosts << "巳おみくじ.jp"
   config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
 
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
 
   # Full error reports are disabled.
   config.consider_all_requests_local = false
@@ -37,7 +39,7 @@ Rails.application.configure do
   config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = false
 
   # Skip http-to-https redirect for the default health check endpoint.
   config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } } #ssl
