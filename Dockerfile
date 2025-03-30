@@ -3,6 +3,8 @@ FROM ruby:3.3.6
 ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
 ENV PORT=80
+ARG SECRET_KEY_BASE=dummy
+ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
 
 # 必要なパッケージと gsutil のインストール
 RUN apt-get update -qq && \
