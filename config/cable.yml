@@ -16,5 +16,6 @@ production:
   polling_interval: 0.1.seconds
   message_retention: 1.day
   allowed_request_origins:
+    - "https://巳おみくじ.jp"
     - "https://xn--t8jk1a7l204u.jp"
     - "https://www.xn--t8jk1a7l204u.jp"
