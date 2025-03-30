@@ -16,6 +16,9 @@ Rails.application.configure do
   config.hosts << IPAddr.new("0.0.0.0/0")
   config.hosts << "巳おみくじ.jp"
   config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
+  config.action_cable.url = "wss://xn--t8jk1a7l204u.jp/cable"
+  config.action_cable.allowed_request_origins = [ "https://xn--t8jk1a7l204u.jp", "https://巳おみくじ.jp" ]
+
 
   # Full error reports are disabled.
   config.consider_all_requests_local = false
