@@ -22,9 +22,19 @@ registry:
     - KAMAL_REGISTRY_JSON
 
 proxy:
-  app_port: 80
+  app_port: 443
   ssl: true
-  host: xn--t8jk1a7l204u.jp # ← punycode表記
+  host: xn--t8jk1a7l204u.jp
+  options:
+    server_name:
+      - xn--t8jk1a7l204u.jp
+      - www.xn--t8jk1a7l204u.jp
+    ssl: true
+    locations:
+      /cable:
+        proxy: true
+
+
 
 env:
   secret:
