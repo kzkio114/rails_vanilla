@@ -1,10 +1,6 @@
 FROM ruby:3.3.6
 
-ENV RAILS_ENV=production
-ENV RAILS_SERVE_STATIC_FILES=true
 ENV PORT=80
-ARG SECRET_KEY_BASE=dummy
-ENV SECRET_KEY_BASE=$SECRET_KEY_BASE
 
 # 必要なパッケージと gsutil のインストール
 RUN apt-get update -qq && \
@@ -35,8 +31,6 @@ HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:80/up || exit 1
 
 EXPOSE 80
-
-RUN bundle exec rails assets:precompile
 
 # 起動処理
 CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
