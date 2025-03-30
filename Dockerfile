@@ -33,4 +33,4 @@ HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
 EXPOSE 80
 
 # 起動処理
-CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
+CMD ["sh", "-c", "bundle exec rails db:prepare && bundle exec rails server -b 0.0.0.0 -p $PORT"]
