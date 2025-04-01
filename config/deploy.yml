@@ -22,19 +22,9 @@ registry:
     - KAMAL_REGISTRY_JSON
 
 proxy:
-  app_port: 443
+  app_port: 80
   ssl: true
   host: xn--t8jk1a7l204u.jp
-  options:
-    server_name:
-      - xn--t8jk1a7l204u.jp
-      - www.xn--t8jk1a7l204u.jp
-    ssl: true
-    locations:
-      /cable:
-        proxy: true
-
-
 
 env:
   secret:
@@ -48,6 +38,7 @@ env:
     - AWS_REGION
   clear:
     RAILS_ENV: production
+    RAILS_SERVE_STATIC_FILES: true
     RAILS_MAX_THREADS: 1
     WEB_CONCURRENCY: 0
     PORT: 80
