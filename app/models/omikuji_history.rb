@@ -4,7 +4,7 @@ class OmikujiHistory < ApplicationRecord
   scope :recent, -> { order(created_at: :desc).limit(10) }
 
   broadcasts_to ->(history) { "history-list" },
-                inserts_by: :append,
+                inserts_by: :prepend,
                 target: "history-list",
                 partial: "omikujis/history"
 end
