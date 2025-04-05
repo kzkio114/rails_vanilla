@@ -7,4 +7,8 @@ class OmikujiHistory < ApplicationRecord
                 inserts_by: :prepend,
                 target: "history-list",
                 partial: "omikujis/history"
+
+  after_create_commit do
+    Rails.logger.info "[Turbo] Broadcast triggered for history ##{id}"
+  end
 end

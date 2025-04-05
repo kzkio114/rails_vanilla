@@ -22,7 +22,7 @@ Rails.application.configure do
   "https://巳おみくじ.jp",
   "https://www.xn--t8jk1a7l204u.jp"
   ]
-
+  config.log_level = :debug
 
   # Full error reports are disabled.
   config.consider_all_requests_local = false
