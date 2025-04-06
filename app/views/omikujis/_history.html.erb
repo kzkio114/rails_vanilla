@@ -3,13 +3,13 @@
   <% histories = @my_histories %>
 <% else %>
   <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
-  <% histories = saved_histories || OmikujiHistory.recent %>
+  <% histories = @saved_histories || OmikujiHistory.recent %>
 <% end %>
 
 <div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>" class="omikuji-list">
   <% if histories.present? %>
     <% histories.each do |history| %>
-      <%= render partial: "omikujis/history_item", locals: { history: history } %>
+      <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
     <% end %>
   <% else %>
     <p class="omikuji-no-history">
