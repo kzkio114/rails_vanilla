@@ -1,6 +1,6 @@
-<div id="omikuji-result">
-    <h1>おみくじ結果</h1>
-    <div class="container">
+<%= turbo_frame_tag "omikuji-result" do %>
+  <h1>おみくじ結果</h1>
+  <div class="container">
     <% if @snake %>
       <%= render "result" %>
       <%= render "snake" %>
@@ -8,6 +8,9 @@
       <p>蛇のデータがありません。</p>
     <% end %>
     <%= render "omikujis/pull" %>
-</div>
+  </div>
+<% end %>
 
-<%= render "omikujis/history", my_history: true %>
+  <% if @history.present? %>
+    <%= render partial: "omikujis/history_item", locals: { omikuji_history: @history } %>
+  <% end %>
