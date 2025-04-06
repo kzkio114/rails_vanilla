@@ -6,7 +6,7 @@
   <% histories = @saved_histories || OmikujiHistory.recent %>
 <% end %>
 
-<div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>" class="omikuji-list">
+<div id="<%= local_assigns[:my_history] ? "my-history-list" : "omikuji_history" %>" class="omikuji-list">
   <% if histories.present? %>
     <% histories.each do |history| %>
       <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
