@@ -14,7 +14,7 @@
     <%= turbo_stream_from "public-history" %>
 
     <div id="public-history-list" class="omikuji-list">
-      <% OmikujiHistory.recent.each do |history| %>
+      <% @saved_histories.each do |history| %>
         <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
       <% end %>
     </div>
