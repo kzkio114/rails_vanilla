@@ -6,7 +6,7 @@ class OmikujisController < ApplicationController
   def create
     @snake = Snake.random_snake
     session[:snake_id] = @snake.id
-    OmikujiHistory.create!(snake: @snake)
+    @history = OmikujiHistory.create!(snake: @snake)
 
     OmikujiHistory.order(created_at: :asc).limit(OmikujiHistory.count - 10).destroy_all if OmikujiHistory.count > 10
 

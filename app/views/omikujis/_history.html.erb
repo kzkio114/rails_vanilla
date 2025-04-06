@@ -2,19 +2,14 @@
   <h2 class="omikuji-title">🔮 あなたの占い結果（最大5件） 🔮</h2>
   <% histories = @my_histories %>
 <% else %>
-    <div id="history-list">
-    <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
-    <% histories = OmikujiHistory.recent %>
+  <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
+  <% histories = saved_histories || OmikujiHistory.recent %>
 <% end %>
 
-<div class="omikuji-list">
+<div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>" class="omikuji-list">
   <% if histories.present? %>
     <% histories.each do |history| %>
-      <p class="omikuji-item">
-        <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
-        <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
-        <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
-      </p>
+      <%= render partial: "omikujis/history_item", locals: { history: history } %>
     <% end %>
   <% else %>
     <p class="omikuji-no-history">
@@ -29,4 +24,3 @@
     <%= render "tops/home" %>
   </div>
 <% end %>
-</div>

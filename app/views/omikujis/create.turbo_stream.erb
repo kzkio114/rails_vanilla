@@ -1,7 +1,13 @@
+<!-- app/views/omikujis/create.turbo_stream.erb -->
 <%= turbo_stream.replace "omikuji-result" do %>
   <%= render "omikujis/display", snake: @snake %>
 <% end %>
 
-<%= turbo_stream.replace "history-list" do %>
-  <%= render "omikujis/history", saved_histories: @saved_histories %>
+<%= turbo_stream.prepend "public-history-list" do %>
+  <%= render partial: "omikujis/history_item", locals: { history: @history } %>
+<% end %>
+
+
+<%= turbo_stream.prepend "my-history-list" do %>
+  <%= render partial: "omikujis/history_item", locals: { history: @history } %>
 <% end %>
