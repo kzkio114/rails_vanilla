@@ -11,6 +11,4 @@
   </div>
 <% end %>
 
-  <% if @history.present? %>
-    <%= render partial: "omikujis/history_item", locals: { omikuji_history: @history } %>
-  <% end %>
+<%= render "omikujis/history", my_history: true %>
