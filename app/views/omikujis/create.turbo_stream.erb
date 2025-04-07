@@ -1,7 +1,3 @@
 <%= turbo_stream.replace "omikuji-result" do %>
   <%= render "omikujis/display", snake: @snake %>
 <% end %>
-
-<%= turbo_stream.prepend "my-history-list" do %>
-  <%= render partial: "omikujis/history_item", locals: { omikuji_history: @history } %>
-<% end %>
