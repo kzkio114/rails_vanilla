@@ -12,9 +12,9 @@
 
     <h1>みんなの占い結果</h1>
     <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
-    <%= turbo_stream_from "public-history" %>
 
-    <div id="public-history-list" class="omikuji-list">
+    <%= turbo_stream_from "public-history" %>
+    <div id="public-history-list" class="omikuji-list" data-turbo-permanent>
       <% @saved_histories.each do |history| %>
         <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
       <% end %>
