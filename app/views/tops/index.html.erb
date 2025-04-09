@@ -11,6 +11,7 @@
     <p>おみくじの結果はボタンを押したら表示されます。</p>
 
     <h1>みんなの占い結果</h1>
+    <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
     <%= turbo_stream_from "public-history" %>
 
     <div id="public-history-list" class="omikuji-list">
