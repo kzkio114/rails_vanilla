@@ -17,7 +17,7 @@
 
   <div id="public-history-list" class="omikuji-list" data-turbo-permanent>
     <% @saved_histories.each do |history| %>
-      <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
+      <%= render partial: "omikujis/history", locals: { omikuji_history: history } %>
     <% end %>
   </div>
 </div>
