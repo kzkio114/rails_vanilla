@@ -1,11 +1,11 @@
 <% if local_assigns[:my_history] %>
-  <h2 class="omikuji-title">🔮 あなたの占い結果（最大5件） 🔮</h2>
+  <h2 class="omikuji-title omikuji-list">🔮 あなたの占い結果（最大5件） 🔮</h2>
   <% histories = @my_histories %>
 <% else %>
   <% histories = @saved_histories || OmikujiHistory.recent %>
 <% end %>
 
-<div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>" class="omikuji-list">
+<div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>">
   <% if histories.present? %>
     <% histories.each do |history| %>
       <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
