@@ -9,7 +9,7 @@
 
     <div id="modal-open"></div>
     <p>おみくじの結果はボタンを押したら表示されます。</p>
-  <% end %>
+  
 
   <h1>みんなの占い結果</h1>
   <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
@@ -17,7 +17,8 @@
 
   <div id="public-history-list" class="omikuji-list" data-turbo-permanent>
     <% @saved_histories.each do |history| %>
-      <%= render partial: "omikujis/history", locals: { omikuji_history: history } %>
+      <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
+    <% end %>
     <% end %>
   </div>
 </div>
