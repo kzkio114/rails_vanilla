@@ -6,5 +6,5 @@ class OmikujiHistory < ApplicationRecord
   broadcasts_to ->(_) { "public-history" },
     inserts_by: :prepend,
     target: "public-history-list",
-    partial: "omikujis/history"
+    partial: "omikujis/history_item"
 end
