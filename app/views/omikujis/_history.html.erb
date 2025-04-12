@@ -1,23 +1,16 @@
 <% if local_assigns[:my_history] %>
-  <h2 class="omikuji-title omikuji-list">🔮 あなたの占い結果（最大5件） 🔮</h2>
+  <h2 class="omikuji-title">🔮 あなたの占い結果（最大5件） 🔮</h2>
   <% histories = @my_histories %>
-<% else %>
-  <% histories = @saved_histories || OmikujiHistory.recent %>
-<% end %>
-
-<div id="<%= local_assigns[:my_history] ? "my-history-list" : "public-history-list" %>">
-  <% if histories.present? %>
-    <% histories.each do |history| %>
-      <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
+  <div id="my-history-list" class="omikuji-list">
+    <% if histories.present? %>
+      <% histories.each do |history| %>
+        <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
+      <% end %>
+    <% else %>
+      <p class="omikuji-no-history">あなたの履歴がありません。</p>
     <% end %>
-  <% else %>
-    <p class="omikuji-no-history">
-      <%= local_assigns[:my_history] ? "あなたの履歴がありません。" : "保存された履歴がありません。" %>
-    </p>
-  <% end %>
-</div>
+  </div>
 
-<% if local_assigns[:my_history] %>
   <div class="button-group top">
     <%= render "omikujis/reset" %>
     <%= render "tops/home" %>
