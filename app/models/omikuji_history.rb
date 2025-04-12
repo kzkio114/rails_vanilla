@@ -1,7 +1,7 @@
 class OmikujiHistory < ApplicationRecord
   belongs_to :snake
 
-  scope :recent, -> { order(created_at: :desc).limit(10) }
+  scope :recent, -> { order(created_at: :desc).limit(100000) }
 
   broadcasts_to ->(_) { "public-history" },
     inserts_by: :prepend,

@@ -10,12 +10,6 @@ class OmikujisController < ApplicationController
 
     @history = OmikujiHistory.create!(snake: @snake)
 
-    # OmikujiHistory を10件に保つ
-    history_count = OmikujiHistory.count
-    if history_count > 10
-      OmikujiHistory.order(created_at: :asc).limit(history_count - 10).destroy_all
-    end
-
     # MyHistoryを更新
     MyHistory.create!(snake: @snake)
     my_history_count = MyHistory.count
