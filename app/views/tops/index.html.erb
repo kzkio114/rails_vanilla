@@ -18,7 +18,5 @@
         <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
       <% end %>
     </div>
-
-    <%= turbo_stream_from "public-history" %>
   <% end %>
 </div>
