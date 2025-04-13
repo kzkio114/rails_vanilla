@@ -1,4 +1,4 @@
-<% history = local_assigns[:history] || local_assigns[:omikuji_history] %>
+<% history = local_assigns[:omikuji_history] || local_assigns[:my_history] %>
 
 <p id="<%= dom_id(history) %>" class="omikuji-item">
   <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
