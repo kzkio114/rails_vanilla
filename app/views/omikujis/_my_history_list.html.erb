@@ -1,0 +1,5 @@
+<div id="my-history-list" class="omikuji-list">
+  <% (@my_histories || []).each do |history| %>
+    <%= render partial: "omikujis/history_item", locals: { omikuji_history: history } %>
+  <% end %>
+</div>
