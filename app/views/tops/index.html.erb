@@ -1,3 +1,4 @@
+
 <div class="wrapper">
   <%= turbo_frame_tag "omikuji-result" do %>
     <h1>ようこそ</h1>
@@ -12,5 +13,5 @@
 
     <h1>みんなの占い結果</h1>
     <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
-     <%= render "omikujis/public_history_list", saved_histories: @saved_histories %>
+      <%= render partial: "omikujis/public_history_list", locals: { omikuji_history: @history } %>
   <% end %>
