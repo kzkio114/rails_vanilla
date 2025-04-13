@@ -16,8 +16,7 @@
 
     <%= turbo_stream_from "public-history" %>
 
-    <div id="public-history" class="omikuji-list">
-        <%= render partial: "omikujis/public_history_list", locals: { history: @history } %>
+      <%= render "omikujis/public_history_list" %>
     </div>
   </div>
 </div>
