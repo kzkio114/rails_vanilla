@@ -35,4 +35,4 @@ EXPOSE 80
 # assetsはビルド時にまとめて作っておく
 RUN bundle exec rails assets:precompile
 
-CMD ["sh", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
+CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]

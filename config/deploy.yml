@@ -12,6 +12,13 @@ servers:
       health-timeout: 5s
       health-retries: 5
 
+accessories:
+  queue:
+    image: us-west1-docker.pkg.dev/omikuji-vm/my-rails-app/omikuji:latest
+    cmd: bin/rails solid_queue:start
+    roles:
+      - web
+
 ssh:
   user: kzkio
 
