@@ -17,10 +17,13 @@ Rails.application.configure do
   config.hosts << "巳おみくじ.jp"
   config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
   config.action_cable.url = "wss://xn--t8jk1a7l204u.jp/cable"
+  config.action_cable.url = "ws://35.185.215.236/cable"
   config.action_cable.allowed_request_origins = [
   "https://xn--t8jk1a7l204u.jp",
   "https://巳おみくじ.jp",
-  "https://www.xn--t8jk1a7l204u.jp"
+  "https://www.xn--t8jk1a7l204u.jp",
+  "http://35.185.215.236",      # ← これ追加して
+  "http://localhost:3000"       # ← ローカルで検証するならこれも
   ]
   config.log_level = :debug
 
