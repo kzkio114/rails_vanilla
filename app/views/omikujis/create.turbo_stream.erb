@@ -5,7 +5,3 @@
 <%= turbo_stream.prepend "public-history-list" do %>
   <%= render partial: "omikujis/history_item", locals: { omikuji_history: @history } %>
 <% end %>
-
-<%= turbo_stream.prepend "my-history-list" do %>
-  <%= render partial: "omikujis/history_item", locals: { omikuji_history: @history } %>
-<% end %>
