@@ -3,8 +3,8 @@ class OmikujiHistory < ApplicationRecord
 
   scope :recent, -> { order(created_at: :desc).limit(100000) }
 
-  broadcasts_to ->(_) { "public-history" },
-    inserts_by: :replace,
-    target: "public-history-list",
+  broadcasts_to ->(history) { "public-history" },
+    inserts_by: :append,
+    target: "public-history",
     partial: "omikujis/history_item"
 end
