@@ -17,7 +17,6 @@ class OmikujisController < ApplicationController
       MyHistory.order(created_at: :asc).limit(my_history_count - 5).destroy_all
     end
 
-    # 最新の履歴を取得（スコープがモデルにある前提）
     @saved_histories = OmikujiHistory.recent
     @my_histories = MyHistory.recent
 
@@ -30,11 +29,9 @@ class OmikujisController < ApplicationController
   def reset
     session.delete(:snake_id)
 
-    # 履歴を全削除
     OmikujiHistory.delete_all
     MyHistory.delete_all
 
-    # 空配列にしておく（viewでループ処理してる前提）
     @saved_histories = []
     @my_histories = []
 
