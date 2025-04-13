@@ -1,7 +1,8 @@
 <% history = local_assigns[:omikuji_history] || local_assigns[:my_history] %>
-
-<p id="<%= dom_id(history) %>" class="omikuji-item">
-  <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
-  <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
-  <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
-</p>
+<% if history.present? %>
+  <p id="<%= dom_id(history) %>" class="omikuji-item">
+    <strong class="omikuji-result"><%= history.snake.omikuji_result.name %></strong><br>
+    <span class="omikuji-description"><%= history.snake.omikuji_result.description %></span><br>
+    <span class="omikuji-date"><%= history.created_at.strftime('%Y-%m-%d %H:%M') %></span>
+  </p>
+<% end %>
