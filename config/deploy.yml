@@ -1,57 +1,59 @@
-# アプリケーション名
 service: omikuji
+image: omikuji-vm/my-rails-app/omikuji
 
-# Docker イメージの設定（Fly.io のレジストリ）
-image: omikuji
-
-# Fly.io のデプロイ先
 servers:
   web:
-    - omikuji.fly.dev
+    hosts:
+      - 35.185.215.236
+    options:
+      health-cmd: curl -f http://localhost:80/up || exit 1
+      health-start-period: 90s
+      health-interval: 5s
+      health-timeout: 5s
+      health-retries: 5
 
-# SSL 設定（Fly.io はデフォルトで Let's Encrypt を使用）
+accessories:
+  queue:
+    image: us-west1-docker.pkg.dev/omikuji-vm/my-rails-app/omikuji:latest
+    cmd: bin/rails solid_queue:start
+    roles:
+      - web
+
+ssh:
+  user: kzkio
+
+registry:
+  server: us-west1-docker.pkg.dev
+  username: _json_key
+  password:
+    - KAMAL_REGISTRY_JSON
+
 proxy:
+  app_port: 80
   ssl: true
-  host: omikuji.fly.dev
+  host: xn--t8jk1a7l204u.jp
 
-# 環境変数
 env:
   secret:
     - RAILS_MASTER_KEY
+    - KAMAL_REGISTRY_JSON
+    - SECRET_KEY_BASE
+    - R2_ACCESS_KEY_ID
+    - R2_SECRET_ACCESS_KEY
+    - R2_ENDPOINT
+    - R2_BUCKET
+    - AWS_REGION
   clear:
-    PORT: 4000
     RAILS_ENV: production
+    RAILS_SERVE_STATIC_FILES: true
+    RAILS_MAX_THREADS: 1
+    WEB_CONCURRENCY: 0
+    PORT: 80
+    HOST: 0.0.0.0
+    DATABASE_URL: sqlite3:/app/storage/production.sqlite3
 
-# Fly.io のボリューム設定（データ永続化）
 volumes:
-  - "fly_storage:/rails/storage"
+  - "./storage:/app/storage"
 
-# アセットのキャッシュ設定
-asset_path: /rails/public/assets
-
-# Docker ビルド設定
 builder:
   arch: amd64
-
-# SSH 設定（Fly.io のデフォルトユーザー）
-ssh:
-  user: fly
-
-# コンテナレジストリの設定（Fly.io 用）
-registry:
-  server: registry.fly.io
-  username: _json_key
-  password: $FLY_ACCESS_TOKEN
-
-# Fly.io のデータベースと Redis 設定
-accessories:
-  db:
-    image: postgres:15
-    host: omikuji-db.fly.dev
-    env:
-      secret:
-        - POSTGRES_PASSWORD
-        - POSTGRES_USER
-  redis:
-    image: redis:7.0
-    host: omikuji-redis.fly.dev

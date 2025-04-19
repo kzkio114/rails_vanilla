@@ -1,13 +1,17 @@
+
 <div class="wrapper">
-  <%= turbo_frame_tag "omikuji-middle" do %>
+  <%= turbo_frame_tag "omikuji-result" do %>
     <h1>ようこそ</h1>
     <h3>今年の干支おみくじ引きますか？🐍</h3>
+
+    <div id="modal">
       <%= render "omikuji" %>
-    <p>おみくじの結果はボタンを押したら表示されます。</p>
-    <h1>みんなの占い結果</h1>
-    <%= turbo_stream_from "history-list" %>
-    <div id="history-list">
-      <%= render partial: "omikujis/history", locals: { saved_histories: @saved_histories } %>
     </div>
+
+    <div id="modal-open"></div>
+    <p>おみくじの結果はボタンを押したら表示されます。</p>
+
+    <h1>みんなの占い結果</h1>
+    <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
+      <%= render partial: "omikujis/public_history_list", locals: { omikuji_history: @history } %>
   <% end %>
-</div>

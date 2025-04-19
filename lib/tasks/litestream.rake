@@ -10,11 +10,11 @@ dbs:
   - path: <%= db %>
     replicas:
       - type: s3
-        endpoint: $AWS_ENDPOINT_URL_S3
-        bucket: $BUCKET_NAME
+        endpoint: $R2_ENDPOINT
+        bucket: $R2_BUCKET
         path: storage/<%= File.basename(db) %>
-        access-key-id: $AWS_ACCESS_KEY_ID
-        secret-access-key: $AWS_SECRET_ACCESS_KEY
+        access-key-id: $R2_ACCESS_KEY_ID
+        secret-access-key: $R2_SECRET_ACCESS_KEY
 <% end -%>
 EOF
 
@@ -36,7 +36,7 @@ namespace :litestream do
     end
 
     @dbs.each do |db|
-      next if File.exist?(db) or !ENV["BUCKET_NAME"]
+      next if File.exist?(db) or !ENV["R2_BUCKET"]
       system "litestream restore -config #{LITESTREAM_CONFIG} -if-replica-exists #{db}"
       exit $?.exitstatus unless $?.exitstatus == 0
     end

@@ -11,6 +11,22 @@ Rails.application.configure do
 
   config.hosts << "omikuji.fly.dev"
 
+
+  config.hosts << ENV.fetch("APP_HOST", "35.185.215.236")
+  config.hosts << IPAddr.new("0.0.0.0/0")
+  config.hosts << "巳おみくじ.jp"
+  config.hosts << "xn--t8jk1a7l204u.jp" # ← punycode表記 (任意)
+  config.action_cable.url = "wss://xn--t8jk1a7l204u.jp/cable"
+  config.action_cable.url = "ws://35.185.215.236/cable"
+  config.action_cable.allowed_request_origins = [
+  "https://xn--t8jk1a7l204u.jp",
+  "https://巳おみくじ.jp",
+  "https://www.xn--t8jk1a7l204u.jp",
+  "http://35.185.215.236",      # ← これ追加して
+  "http://localhost:3000"       # ← ローカルで検証するならこれも
+  ]
+  config.log_level = :debug
+
   # Full error reports are disabled.
   config.consider_all_requests_local = false
 
@@ -19,12 +35,14 @@ Rails.application.configure do
 
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
   # Store uploaded files in Tigris Global Object Storage (see config/storage.yml for options).
-  config.active_storage.service = :tigris
+  config.active_storage.service = :r2
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   config.assume_ssl = true
@@ -33,7 +51,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Skip http-to-https redirect for the default health check endpoint.
-  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+  config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } } #ssl
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
@@ -88,5 +106,5 @@ Rails.application.configure do
   # ]
   #
   # Skip DNS rebinding protection for the default health check endpoint.
-  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  config.host_authorization = { exclude: ->(request) { request.path == "/up" } } #host
 end
