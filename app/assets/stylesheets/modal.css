@@ -54,3 +54,32 @@
 .modal-close-button:hover {
   background: lightgray;
 }
+
+.modal-background::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 10px;
+  background: darkred;
+  z-index: 2;
+  border-radius: 4px;
+}
+
+.modal-background::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 8px;
+  background: red;
+  z-index: 2;
+  margin-top: 10px;
+  box-shadow:
+    -70px 20px 0 0 darkred, /* 左柱 */
+     70px 20px 0 0 darkred; /* 右柱 */
+}
