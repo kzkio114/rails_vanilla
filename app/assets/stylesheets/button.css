@@ -2,21 +2,21 @@
   display: inline-block;
   padding: 5px 10px;
   background-color: #dd221f;
-  color: white; /* 文字色 */
-  text-decoration: none; /* 下線を消す */
-  border-radius: 5px; /* 角を丸くする */
-  border: none; /* ボーダーを消す */
-  font-size: 16px; /* 文字サイズ */
-  cursor: pointer; /* ポインタカーソル */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
   text-align: center;
 }
 
 .button:hover {
-  background-color:  #dd221f; /* ホバー時の色 */
+  background-color:  #dd221f;
 }
 
 .button:active {
-  background-color: #dd221f; /* クリック時の色 */
+  background-color: #dd221f;
 }
 
 .button-group {

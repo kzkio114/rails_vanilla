@@ -1,0 +1,7 @@
+<%= turbo_stream.remove "modal" %>
+
+<%= turbo_stream.append "modal-open" do %>
+  <div id="modal">
+    <%= render "tops/omikuji" %>
+  </div>
+<% end %>

@@ -1,18 +1,20 @@
 class OmikujisController < ApplicationController
   before_action :set_saved_histories, only: %i[index create reset]
 
-  def index;end
+  def index
+  end
 
   def create
     @snake = Snake.random_snake
     session[:snake_id] = @snake.id
-    OmikujiHistory.create!(snake: @snake)
 
-    OmikujiHistory.order(created_at: :asc).limit(OmikujiHistory.count - 10).destroy_all if OmikujiHistory.count > 10
+    @history = OmikujiHistory.create!(snake: @snake)
 
+    # MyHistoryを更新
     MyHistory.create!(snake: @snake)
-    if MyHistory.count > 5
-      MyHistory.order(created_at: :asc).limit(1).destroy_all
+    my_history_count = MyHistory.count
+    if my_history_count > 5
+      MyHistory.order(created_at: :asc).limit(my_history_count - 5).destroy_all
     end
 
     @saved_histories = OmikujiHistory.recent
@@ -26,8 +28,10 @@ class OmikujisController < ApplicationController
 
   def reset
     session.delete(:snake_id)
+
     OmikujiHistory.delete_all
     MyHistory.delete_all
+
     @saved_histories = []
     @my_histories = []
 

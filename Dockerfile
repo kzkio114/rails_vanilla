@@ -1,36 +1,38 @@
-# ベースイメージ
 FROM ruby:3.3.6
 
-# 必要なパッケージをインストール
-RUN apt-get update -qq \
-    && apt-get install -y --no-install-recommends \
-        curl gnupg ca-certificates \
-    && curl -fsSL https://ftp-master.debian.org/keys/archive-key-11.asc | gpg --dearmor -o /etc/apt/trusted.gpg.d/debian-archive-keyring.gpg \
-    && apt-get update -qq \
-    && apt-get install -y build-essential nodejs sqlite3
+# 必要なパッケージと gsutil のインストール
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+      curl gnupg ca-certificates python3-pip sqlite3 build-essential nodejs wget && \
+    wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-456.0.0-linux-x86_64.tar.gz && \
+    tar -xf google-cloud-cli-456.0.0-linux-x86_64.tar.gz && \
+    ./google-cloud-sdk/install.sh --quiet && \
+    ./google-cloud-sdk/bin/gcloud components install gsutil --quiet && \
+    mv google-cloud-sdk /opt/ && \
+    ln -s /opt/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil
 
-# Rails をインストール
-RUN gem install rails
+# Bundler & Rails
+RUN gem install bundler --no-document && \
+    gem install rails --no-document
 
-# 作業ディレクトリを設定
+ENV PORT=80
+
+# 作業ディレクトリ
 WORKDIR /app
 
-# 環境変数を設定
-ENV APP_HOST="omikuji-414350596159.asia-northeast1.run.app"
-ENV PORT=8080
-
-# Gemfile をコピー
+# Gemfile を先にコピーして依存解決
 COPY Gemfile Gemfile.lock /app/
+RUN bundle install --jobs=4 --retry=3
 
-# Bundler をインストール
-RUN gem install bundler && bundle install
-
-# アプリのコードをコピー
+# アプリケーション全体をコピー
 COPY . /app
 
-# ポートを公開
-EXPOSE 8080
+HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost:80/up || exit 1
 
-# Rails サーバを起動（マイグレーションを実行してから）
-CMD ["sh", "-c", "bin/rails db:migrate && bin/rails db:seed && exec bundle exec rails server -b 0.0.0.0 -p $PORT"]
+EXPOSE 80
 
+# assetsはビルド時にまとめて作っておく
+RUN bundle exec rails assets:precompile
+
+CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
