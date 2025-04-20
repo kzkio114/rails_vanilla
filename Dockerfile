@@ -33,6 +33,6 @@ HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
 EXPOSE 80
 
 # assetsはビルド時にまとめて作っておく
-RUN RAILS_ENV=production bundle exec rails assets:precompile
+#RUN RAILS_ENV=production bundle exec rails assets:precompile
 
 CMD ["bash", "-c", "bundle exec puma -C config/puma.rb"]
