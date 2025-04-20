@@ -20,7 +20,7 @@ accessories:
       - web
 
 ssh:
-  user: kzkio_app
+  user: kzkio114
 
 registry:
   server: us-west1-docker.pkg.dev
