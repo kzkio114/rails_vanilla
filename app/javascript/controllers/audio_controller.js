@@ -5,7 +5,7 @@ export default class extends Controller {
     this.audioContext = new AudioContext();
     this.isPlaying = false;
     this.loopId = null;
-    this.oscillators = []; // ← 追加：再生中の音を保持
+    this.oscillators = [];
   }
 
   toggle() {
@@ -19,12 +19,12 @@ export default class extends Controller {
   start() {
     const now = this.audioContext.currentTime;
     this.scheduleLoop(now);
-    this.playWindNoise(now); // 山奥の風
+    this.playWindNoise(now);
     this.isPlaying = true;
     this.loopId = setInterval(() => {
       const now = this.audioContext.currentTime;
       this.scheduleLoop(now);
-    }, 20000); // ゆったりループ
+    }, 20000);
   }
 
   stop() {
@@ -34,7 +34,6 @@ export default class extends Controller {
 
     if (this.windSource) this.windSource.stop();
 
-    // 今鳴っている音（oscillator）をすぐ止める
     this.oscillators.forEach((osc) => {
       try {
         osc.stop();
@@ -48,7 +47,7 @@ export default class extends Controller {
       { freq: 261.63, duration: 2.0 }, // C4
       { freq: 349.23, duration: 2.5 }, // F4
       { freq: 392.00, duration: 2.0 }, // G4
-      { freq: 261.63, duration: 2.0 }, // C4（繰り返しで落ち着き）
+      { freq: 261.63, duration: 2.0 }, // C4
     ];
 
     let currentTime = startTime;
@@ -68,7 +67,7 @@ export default class extends Controller {
       osc.start(currentTime);
       osc.stop(currentTime + note.duration);
 
-      this.oscillators.push(osc); // ← 配列に追加
+      this.oscillators.push(osc);
 
       currentTime += note.duration + 1.2;
     }
