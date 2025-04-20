@@ -35,4 +35,5 @@ EXPOSE 80
 # assetsはビルド時にまとめて作っておく
 RUN bundle exec rails assets:precompile
 
-CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0 -p $PORT"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+
