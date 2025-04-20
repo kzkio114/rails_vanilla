@@ -19,7 +19,6 @@
   animation: floatIn 0.4s ease-out;
 }
 
-/* アニメーション定義 */
 @keyframes floatIn {
   from {
     opacity: 0;

@@ -1,5 +1,10 @@
 <%= turbo_stream_from "public-history" %>
 <div class="wrapper">
+  <div class="sound-control">
+    <button data-controller="audio" data-action="click->audio#toggle" class="bgm-button">
+      静けさをひらく(音を再生/停止)
+    </button>
+  </div>
   <%= turbo_frame_tag "omikuji-result" do %>
     <div id="modal-open"></div>
       <%= render "tops/welcome" %>
