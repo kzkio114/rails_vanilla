@@ -1,3 +1,11 @@
 .top {
   margin-top: 5px;
 }
+
+.bottom-container {
+  margin-bottom: 90px;
+}
+
+.bottom {
+  margin-bottom: 25px;
+}

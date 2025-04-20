@@ -1,7 +1,11 @@
 <div id="modal">
-    <h1>ようこそ</h1>
-    <h2>今年の干支おみくじ引きますか？</h2>
-        <%= render "tops/omikuji" %>
-    <h1>みんなの占い結果</h1>
-    <%= render partial: "omikujis/public_history_list", locals: { omikuji_history: @history } %>
+  <div class="bottom-container">
+    <h1 class="main-title">ようこそ</h1>
+    <h2 class="sub-title">今年の干支おみくじ引きますか？</h2>
+  </div>
+
+  <%= render "tops/omikuji" %>
+
+  <h1 class="section-title">みんなの占い結果</h1>
+  <%= render partial: "omikujis/public_history_list", locals: { omikuji_history: @history } %>
 </div>
