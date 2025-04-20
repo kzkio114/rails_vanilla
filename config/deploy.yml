@@ -4,7 +4,7 @@ image: omikuji-vm/my-rails-app/omikuji
 servers:
   web:
     hosts:
-      - 35.185.215.236
+      - omikuji-vm
     options:
       health-cmd: curl -f http://localhost:80/up || exit 1
       health-start-period: 90s
@@ -20,7 +20,7 @@ accessories:
       - web
 
 ssh:
-  user: kzkio114
+  user: kzkio_app
 
 registry:
   server: us-west1-docker.pkg.dev
