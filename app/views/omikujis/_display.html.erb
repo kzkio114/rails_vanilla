@@ -1,4 +1,5 @@
-<%= turbo_frame_tag "omikuji-result" do %>
+<%= turbo_frame_tag "omikuji-result", data: { controller: "omikuji" } do %>
+<div class="fortune-effect-container"></div>
   <h1 class="main-title">おみくじ結果</h1>
   <div class="container">
     <% if @snake %>
