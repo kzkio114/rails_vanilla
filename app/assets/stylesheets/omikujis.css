@@ -2,7 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* ボタンを中央配置 */
+  height: 300px; /* デフォルトの高さ */
+}
+
+@media screen and (max-width: 768px) {
+  .omikuji-container {
+    height: auto; /* スマホでは高さを自動調整 */
+    min-height: 300px; /* 必要に応じて最低高さを設定 */
+    padding: 10px; /* 余白を追加して見やすくする */
+  }
 }
 
 .omikuji-button {
