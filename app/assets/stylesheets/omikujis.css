@@ -26,6 +26,16 @@
   margin: 0 10px;
 }
 
+/* スマホ用のスタイル */
+@media screen and (max-width: 768px) {
+  .omikuji-button {
+    font-size: 18px; /* フォントサイズを小さく */
+    padding: 10px 5px; /* パディングを小さく */
+    height: 150px; /* 高さを小さく */
+    width: 40px; /* 幅を小さく */
+  }
+}
+
 .omikuji-button:hover {
   transform: scale(1.3);
   background: #ffffff;
