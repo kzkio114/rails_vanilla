@@ -10,3 +10,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* スマホ用のスタイル */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 10px; /* パディングを追加 */
+  }
+}
