@@ -34,7 +34,6 @@
   border-color: #dd221f;
 }
 
-
 .omikuji-list {
   max-height: 200px;
   overflow-y: auto;
@@ -43,6 +42,7 @@
   background: white;
   border-radius: 5px;
   border: 1px solid #ddd;
+  box-sizing: border-box; /* パディングとボーダーを含めてサイズを計算 */
 }
 
 /* おみくじの履歴アイテム */
