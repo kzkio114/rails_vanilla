@@ -43,7 +43,7 @@
   text-align: center;
   white-space: nowrap;
   max-width: 90%;
-  margin: 20px 0;
+  margin: 10px 0;
   width: fit-content;
   vertical-align: top;
 }
@@ -55,7 +55,7 @@
 
 .sub-title {
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .section-title {
