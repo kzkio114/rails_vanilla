@@ -45,7 +45,7 @@
 @media screen and (max-width: 768px) {
   .modal-content {
     width: 100%; /* スマホで幅を広げる */
-    min-height: 300px; /* 最低高さを設定 */
+    min-height: 400px; /* 最低高さを設定 */
     box-sizing: border-box; /* パディングを含めた幅・高さ計算 */
   }
 }
