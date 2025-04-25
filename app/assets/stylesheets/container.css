@@ -53,7 +53,7 @@
     width: 250px; /* 幅を小さく */
     height: 350px; /* 高さを小さく */
     padding: 15px; /* パディングを調整 */
-    margin: 15px auto; /* マージンを調整 */
+    margin: 10px auto; /* マージンを調整 */
   }
 
   .container h2,
