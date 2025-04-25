@@ -46,3 +46,18 @@
 .container:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* スマホ用のスタイル */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 250px; /* 幅を小さく */
+    height: 350px; /* 高さを小さく */
+    padding: 15px; /* パディングを調整 */
+    margin: 15px auto; /* マージンを調整 */
+  }
+
+  .container h2,
+  .container p {
+    font-size: 14px; /* フォントサイズを小さく */
+  }
+}
