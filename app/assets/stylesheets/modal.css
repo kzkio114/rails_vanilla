@@ -36,6 +36,18 @@
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  width: 100%; /* スマホで幅を広げる */
+  max-width: 400px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */
+  box-sizing: border-box; /* パディングを含めた幅計算 */
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 100%; /* スマホで幅を広げる */
+    min-height: 300px; /* 最低高さを設定 */
+    box-sizing: border-box; /* パディングを含めた幅・高さ計算 */
+  }
 }
 
 .modal-close-button {
