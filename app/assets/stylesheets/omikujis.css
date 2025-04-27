@@ -48,7 +48,10 @@
     font-size: 18px;
     height: 180px;
     width: 50px;
-    transform: translateY(-8%); /* ← スマホだけ、さらにちょっと下にずらす！ */
+  }
+
+  .omikuji-text {
+    transform: translateY(-20%); /* ← スマホだけ、さらにちょっと下にずらす！ */
   }
 }
 
