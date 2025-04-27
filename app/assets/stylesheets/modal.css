@@ -40,6 +40,9 @@
   max-width: 400px;
   margin: 0 auto;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中央揃え！ */
 }
 
 @media screen and (max-width: 768px) {
