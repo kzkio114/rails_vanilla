@@ -3,32 +3,32 @@
   justify-content: center;
   align-items: center;
   height: 350px;
-  position: relative; /* ここ追加 */
+  position: relative;
 }
 
 .omikuji-button {
   writing-mode: vertical-rl;
   text-orientation: upright;
-  text-align: center;
   font-size: 24px;
-  padding: 15px 10px;
+  padding: 0; /* ←ここ絶対に0にする！ */
   border: 2px solid #f6f5f5;
   background: #dd221f;
   cursor: pointer;
   text-decoration: none;
   color: rgb(249, 248, 248);
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 210px;
   width: 50px;
+  line-height: 1; /* ←ここ追加！ */
+  display: flex;
+  align-items: center; /* ←これで文字を上下中央に */
+  justify-content: center; /* ←これで文字を左右中央に */
   transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 0 10px;
-  position: relative; /* ここ追加 */
-  z-index: 0; /* 初期は普通の順番 */
+  position: relative;
+  z-index: 0;
 }
 
 .omikuji-button:hover {
@@ -37,7 +37,7 @@
   color: #dd221f;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   border-color: #dd221f;
-  z-index: 1; /* ホバー時だけ最前面に出す！ */
+  z-index: 1;
 }
 
 /* スマホ用 */
