@@ -2,34 +2,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 550px;
+  height: 400px;
   flex-wrap: wrap; /* スマホ対策！ */
+  gap: 15px; /* 間はgapで作る */
   position: relative;
 }
 
 .omikuji-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 24px;
-  padding: 0; /* ←ここ絶対に0にする！ */
+  height: 210px;
+  width: 50px;
+  padding: 0;
   border: 2px solid #f6f5f5;
   background: #dd221f;
   cursor: pointer;
-  text-decoration: none;
   color: rgb(249, 248, 248);
   font-weight: bold;
-  height: 210px;
-  width: 50px;
-  line-height: 1; /* ←ここ追加！ */
-  display: flex;
-  align-items: center; /* ←これで文字を上下中央に */
-  justify-content: center; /* ←これで文字を左右中央に */
-  transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  margin: 0 10px;
-  position: relative;
+  transition: transform 0.3s ease-in-out, background 0.3s, color 0.3s;
+  margin: 0;
   z-index: 0;
+  overflow: hidden; /* はみ出し防止 */
+}
+
+.omikuji-text {
+  display: inline-block;
+  transform: translateY(5%); /* ←これで「み」が中央に来る！ */
 }
 
 .omikuji-button:hover {
@@ -40,6 +45,7 @@
   border-color: #dd221f;
   z-index: 1;
 }
+
 
 /* スマホ用 */
 @media screen and (max-width: 768px) {
