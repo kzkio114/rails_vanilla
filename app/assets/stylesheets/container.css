@@ -47,17 +47,16 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* スマホ用のスタイル */
 @media screen and (max-width: 768px) {
   .container {
-    width: 250px; /* 幅を小さく */
-    height: 350px; /* 高さを小さく */
-    padding: 15px; /* パディングを調整 */
-    margin: 10px auto; /* マージンを調整 */
+    width: 250px;
+    height: 350px;
+    padding: 15px;
+    margin: 10px auto;
   }
 
   .container h2,
   .container p {
-    font-size: 14px; /* フォントサイズを小さく */
+    font-size: 14px;
   }
 }

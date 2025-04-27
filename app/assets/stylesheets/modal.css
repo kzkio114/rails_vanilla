@@ -36,17 +36,17 @@
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
-  width: 100%; /* スマホで幅を広げる */
-  max-width: 400px; /* 最大幅を設定 */
-  margin: 0 auto; /* 中央揃え */
-  box-sizing: border-box; /* パディングを含めた幅計算 */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {
   .modal-content {
-    width: 100%; /* スマホで幅を広げる */
-    min-height: 400px; /* 最低高さを設定 */
-    box-sizing: border-box; /* パディングを含めた幅・高さ計算 */
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
   }
 }
 

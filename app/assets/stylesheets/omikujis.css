@@ -7,6 +7,8 @@
 
 .omikuji-button {
   writing-mode: vertical-rl; /* 縦書き */
+  text-orientation: upright; /* 文字を縦に立たせる */
+  text-align: center;
   font-size: 24px;
   padding: 15px 10px;
   border: 2px solid #f6f5f5;
