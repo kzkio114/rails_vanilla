@@ -44,10 +44,8 @@
 @media screen and (max-width: 768px) {
   .omikuji-button {
     font-size: 15px;
-    padding: 1px 1px;
-    height: 200px;
+    height: 150px;
     width: 40px;
-    margin-bottom: 10px;
   }
 }
 
