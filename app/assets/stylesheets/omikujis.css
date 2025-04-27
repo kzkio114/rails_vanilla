@@ -51,7 +51,7 @@
   }
 
   .omikuji-text {
-    transform: translateY(-10%); /* ← スマホだけ、さらにちょっと下にずらす！ */
+    transform: translateY(-15%); /* ← スマホだけ、さらにちょっと下にずらす！ */
   }
 }
 
