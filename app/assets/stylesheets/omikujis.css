@@ -35,7 +35,7 @@
     text-align: center;
     font-size: 15px; /* フォントサイズを小さく */
     padding: 1px 1px; /* パディングを小さく */
-    height: 200px; /* 高さを小さく */
+    height: 100px; /* 高さを小さく */
     width: 40px; /* 幅を小さく */
     display: flex; /* Flexbox を維持 */
     align-items: center; /* 縦方向の中央揃え */
