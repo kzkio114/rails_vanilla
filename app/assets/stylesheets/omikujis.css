@@ -31,7 +31,9 @@
 /* スマホ用のスタイル */
 @media screen and (max-width: 768px) {
   .omikuji-button {
-    font-size: 18px; /* フォントサイズを小さく */
+    text-orientation: upright; /* 文字を縦に立たせる */
+    text-align: center;
+    font-size: 15px; /* フォントサイズを小さく */
     padding: 1px 1px; /* パディングを小さく */
     height: 200px; /* 高さを小さく */
     width: 40px; /* 幅を小さく */
