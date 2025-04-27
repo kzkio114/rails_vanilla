@@ -2,20 +2,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px; /* デフォルトの高さ */
+  height: 350px;
+  position: relative; /* ここ追加 */
 }
 
 .omikuji-button {
-  writing-mode: vertical-rl; /* 縦書き */
-  text-orientation: upright; /* 文字を縦に立たせる */
+  writing-mode: vertical-rl;
+  text-orientation: upright;
   text-align: center;
   font-size: 24px;
   padding: 15px 10px;
   border: 2px solid #f6f5f5;
-  background: #dd221f; /* 通常：赤背景 */
+  background: #dd221f;
   cursor: pointer;
   text-decoration: none;
-  color: rgb(249, 248, 248); /* 通常：白文字 */
+  color: rgb(249, 248, 248);
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -26,20 +27,26 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 0 10px;
+  position: relative; /* ここ追加 */
+  z-index: 0; /* 初期は普通の順番 */
 }
 
-/* スマホ用のスタイル */
+.omikuji-button:hover {
+  transform: scale(1.3);
+  background: #ffffff;
+  color: #dd221f;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: #dd221f;
+  z-index: 1; /* ホバー時だけ最前面に出す！ */
+}
+
+/* スマホ用 */
 @media screen and (max-width: 768px) {
   .omikuji-button {
-    text-orientation: upright; /* 文字を縦に立たせる */
-    text-align: center;
-    font-size: 15px; /* フォントサイズを小さく */
-    padding: 1px 1px; /* パディングを小さく */
-    height: 100px; /* 高さを小さく */
-    width: 40px; /* 幅を小さく */
-    display: flex; /* Flexbox を維持 */
-    align-items: center; /* 縦方向の中央揃え */
-    justify-content: center; /* 横方向の中央揃え */
+    font-size: 15px;
+    padding: 1px 1px;
+    height: 100px;
+    width: 40px;
   }
 }
 
