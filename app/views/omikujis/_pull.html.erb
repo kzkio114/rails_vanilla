@@ -6,6 +6,4 @@
   <% button_text = "おみくじを引き直す" %>
 <% end %>
 
-<%= button_to omikujis_path, method: :post, data: { turbo_stream: true }, class: button_class do %>
-  <span class="omikuji-text"><%= button_text %></span>
-<% end %>
+<%= button_to button_text, omikujis_path, method: :post, data: { turbo_stream: true }, class: button_class %>

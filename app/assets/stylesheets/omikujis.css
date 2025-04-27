@@ -32,11 +32,6 @@
   overflow: hidden; /* はみ出し防止 */
 }
 
-.omikuji-text {
-  display: inline-block;
-  transform: translateY(5%); /* ←これで「み」が中央に来る！ */
-}
-
 .omikuji-button:hover {
   transform: scale(1.3);
   background: #ffffff;
@@ -50,8 +45,10 @@
 /* スマホ用 */
 @media screen and (max-width: 768px) {
   .omikuji-button {
+    display: inline-block;
+   transform: translateY(5%); /* ←これで「み」が中央に来る！ */
     font-size: 15px;
-    height: 150px;
+    height: 80px;
     width: 40px;
   }
 }
