@@ -16,12 +16,21 @@ export default class extends Controller {
     if (!container) return;
 
     const { leafCount, colors, duration } = this.getLeafSettings(resultText);
-    if (!leafCount) return;
-
     const reshuffleButton = document.getElementById("reshuffle-button");
+
     if (reshuffleButton) {
-      reshuffleButton.disabled = true;   // 🌟 葉っぱ出す前に無効化！
+      reshuffleButton.disabled = true;
       reshuffleButton.classList.remove("visible");
+    }
+
+    if (!leafCount) {
+      if (reshuffleButton) {
+        setTimeout(() => {
+          reshuffleButton.disabled = false;
+          reshuffleButton.classList.add("visible");
+        }, 700);
+      }
+      return;
     }
 
     for (let i = 0; i < leafCount; i++) {
@@ -41,9 +50,9 @@ export default class extends Controller {
     }
 
     if (reshuffleButton) {
-      const totalAnimationTime = (leafCount * 100) + 2000; // 🌟 葉っぱ降りるのを少し待つ
+      const totalAnimationTime = (leafCount * 100) + 2000;
       setTimeout(() => {
-        reshuffleButton.disabled = false; // 🌟 解除！！
+        reshuffleButton.disabled = false;
         reshuffleButton.classList.add("visible");
       }, totalAnimationTime);
     }
@@ -61,6 +70,8 @@ export default class extends Controller {
         return { leafCount: 35, colors: ["#8D6E63", "#A1887F", "#689F38"], duration: 7 };
       case "吉":
         return { leafCount: 15, colors: ["#AED581", "#C5E1A5", "#DCEDC8"], duration: 7 };
+      case "凶":
+        return { leafCount: 0 };
       default:
         return {};
     }
