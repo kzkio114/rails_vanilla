@@ -104,3 +104,12 @@
   display: block;
   margin-top: 5px;
 }
+
+.omikuji-reshuffle {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.omikuji-reshuffle.visible {
+  opacity: 1;
+}

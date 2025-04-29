@@ -1,18 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["button"]
-
   connect() {
-    const result = document.querySelector(".omikuji-result");
-    const resultText = result?.textContent?.trim();
-    if (!resultText) return;
-  
-    setTimeout(() => {
-      this.spawnFallingLeaves(resultText);
-    }, 100); // 0.1秒後に葉っぱを出す
+    requestAnimationFrame(() => {
+      const container = document.querySelector(".fortune-effect-container");
+      const resultText = container?.dataset?.leafResult?.trim();
+      if (resultText) {
+        this.spawnFallingLeaves(resultText);
+      }
+    });
   }
-  
+
   spawnFallingLeaves(resultText) {
     const container = document.querySelector(".fortune-effect-container");
     if (!container) return;
@@ -20,20 +18,34 @@ export default class extends Controller {
     const { leafCount, colors, duration } = this.getLeafSettings(resultText);
     if (!leafCount) return;
 
+    const reshuffleButton = document.getElementById("reshuffle-button");
+    if (reshuffleButton) {
+      reshuffleButton.disabled = true;   // 🌟 葉っぱ出す前に無効化！
+      reshuffleButton.classList.remove("visible");
+    }
+
     for (let i = 0; i < leafCount; i++) {
       setTimeout(() => {
         const color = this.getRandomColor(colors);
         const { animationName, styleElement } = this.createLeafAnimation();
         const leaf = this.createLeaf(color, animationName, duration);
-    
+
         container.appendChild(leaf);
         document.head.appendChild(styleElement);
-    
+
         setTimeout(() => {
           leaf.remove();
           styleElement.remove();
         }, (duration * 1000) + 2000);
-      }, i * 100); // 100ミリ秒間隔で葉っぱを順番に出す
+      }, i * 100);
+    }
+
+    if (reshuffleButton) {
+      const totalAnimationTime = (leafCount * 100) + 2000; // 🌟 葉っぱ降りるのを少し待つ
+      setTimeout(() => {
+        reshuffleButton.disabled = false; // 🌟 解除！！
+        reshuffleButton.classList.add("visible");
+      }, totalAnimationTime);
     }
   }
 

@@ -1,11 +1,13 @@
 <% if params[:controller] == "modals" %>
   <% button_class = "omikuji-button" %>
   <% button_text = "おみくじ" %>
+  <% button_options = {} %>
 <% else %>
-  <% button_class = "button" %>
+  <% button_class = "button omikuji-reshuffle" %>
   <% button_text = "おみくじを引き直す" %>
+  <% button_options = { id: "reshuffle-button" } %>
 <% end %>
 
-<%= button_to omikujis_path, method: :post, data: { turbo_stream: true }, class: button_class do %>
+<%= button_to omikujis_path, method: :post, data: { turbo_stream: true }, class: button_class, **button_options do %>
   <span class="omikuji-text"><%= button_text %></span>
 <% end %>
