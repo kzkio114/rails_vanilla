@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get "ogp_templates/show"
   get "/up", to: proc { [200, { "Content-Type" => "text/plain" }, ["OK"]] }
+
+  resources :ogp_templates, only: [:show]
 
   root "tops#index"
 

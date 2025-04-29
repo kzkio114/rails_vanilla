@@ -3,7 +3,7 @@ FROM ruby:3.3.6
 # 必要なパッケージと gsutil のインストール
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
-      curl gnupg ca-certificates python3-pip sqlite3 build-essential nodejs wget && \
+      curl gnupg ca-certificates python3-pip sqlite3 build-essential nodejs wget chromium fonts-noto-cjk && \
     wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-456.0.0-linux-x86_64.tar.gz && \
     tar -xf google-cloud-cli-456.0.0-linux-x86_64.tar.gz && \
     ./google-cloud-sdk/install.sh --quiet && \
@@ -14,6 +14,10 @@ RUN apt-get update -qq && \
 # Bundler & Rails
 RUN gem install bundler --no-document && \
     gem install rails --no-document
+
+# Bun install (versionは例)
+RUN curl -fsSL https://bun.sh/install | bash && \
+    export PATH="$HOME/.bun/bin:$PATH"
 
 ENV PORT=80
 
