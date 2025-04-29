@@ -1,0 +1,22 @@
+.sound-control {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.bgm-button {
+  font-family: "serif";
+  font-size: 16px;
+  background: #f3f3ec;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #5c4e3d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+.bgm-button:hover {
+  background: #ece9d8;
+}

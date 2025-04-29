@@ -1,17 +1,12 @@
-
+<%= turbo_stream_from "public-history" %>
 <div class="wrapper">
+  <div class="sound-control">
+    <button data-controller="audio" data-action="click->audio#toggle" class="bgm-button">
+      静けさをひらく(音を再生/停止)
+    </button>
+  </div>
   <%= turbo_frame_tag "omikuji-result" do %>
-    <h1>ようこそ</h1>
-    <h3>今年の干支おみくじ引きますか？🐍</h3>
-
-    <div id="modal">
-      <%= render "omikuji" %>
-    </div>
-
     <div id="modal-open"></div>
-    <p>おみくじの結果はボタンを押したら表示されます。</p>
-
-    <h1>みんなの占い結果</h1>
-    <h2 class="omikuji-title">🔮 最大10件表示 🔮</h2>
-      <%= render partial: "omikujis/public_history_list", locals: { omikuji_history: @history } %>
+      <%= render "tops/welcome" %>
   <% end %>
+</div>

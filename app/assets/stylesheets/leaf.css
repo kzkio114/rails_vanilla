@@ -1,0 +1,23 @@
+.fortune-effect-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.leaf-drop {
+  position: absolute;
+  top: -50px;
+}
+
+@keyframes leaf-fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.leaf-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
