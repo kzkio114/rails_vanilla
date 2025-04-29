@@ -1,13 +1,17 @@
 <div id="omikuji-result">
   <div id="modal" class="modal is-active">
     <div class="modal-background"></div>
+
+    <div class="modal-wrapper">
+      <h2 class="floating-message">おみくじの中から1つ選んでください！</h2>
+
     <div class="modal-content">
       <%= button_to "×", modal_path, method: :delete, data: { turbo_frame: "modal" }, class: "modal-close-button" %>
-      <h2 class="title">どのおみくじを選びますか？</h2>
       <div class="omikuji-container">
         <% 5.times do %>
           <%= render "omikujis/pull" %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

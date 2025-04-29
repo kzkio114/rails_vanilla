@@ -1,5 +1,9 @@
 body {
   margin: 0;
-  background-color: #f0f8ff;
+  background-image: url("torii.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   overflow: auto;
 }

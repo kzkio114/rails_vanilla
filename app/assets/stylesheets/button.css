@@ -1,22 +1,29 @@
 .button {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 10px 24px;
+  border: 2px solid #dd221f;
   background-color: #dd221f;
-  color: white;
+  color: rgb(248, 246, 246);
   text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.2s ease, transform 0.1s ease, color 0.2s ease;
 }
 
 .button:hover {
-  background-color:  #dd221f;
+  background-color: #f3f0f0;
+  color: #dd221f;
+  border-color: #dd221f;
 }
 
 .button:active {
-  background-color: #dd221f;
+  transform: scale(0.97);
+  background-color: #efeae9;
+  color: #660000;
 }
 
 .button-group {
