@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "omikuji-result", data: { controller: "omikuji" } do %>
-<div class="fortune-effect-container"></div>
+  <div class="fortune-effect-container"></div>
   <h2 class="sub-title">おみくじ結果</h2>
   <div class="container">
     <% if @snake %>
@@ -10,6 +10,6 @@
     <% end %>
     <%= render "omikujis/pull" %>
   </div>
- <%= render "omikujis/my_history_list" %>
- <%= render "tops/home" %>
+  <%= render "omikujis/my_history_list" %>
+  <%= render "tops/home" %>
 <% end %>

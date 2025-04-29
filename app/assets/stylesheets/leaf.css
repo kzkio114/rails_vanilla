@@ -9,10 +9,15 @@
 .leaf-drop {
   position: absolute;
   top: -50px;
-  animation: leaf-fall 7s ease-in forwards;
 }
 
 @keyframes leaf-fall {
   0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
   100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.leaf-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
