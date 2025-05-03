@@ -1,18 +1,24 @@
-<% content_for :meta_tags do %>
-  <% if @snake.image.attached? %>
-    <meta property="og:image" content="<%= url_for(@snake.image) %>" />
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "omikuji-result", data: { controller: "omikuji" } do %>
-  <div class="fortune-effect-container" data-leaf-result="<%= @snake&.omikuji_result&.name %>"></div>
-  <h2 class="sub-title">おみくじ結果</h2>
+<% if params[:static] %>
   <div class="container">
+    <h2>おみくじ結果</h2>
     <% if @snake %>
-      <%= render "omikujis/result" %>
-      <%= render "omikujis/snake" %>
+      <%= render partial: "omikujis/result", locals: { snake: @snake } %>
+      <%= render partial: "omikujis/snake", locals: { snake: @snake } %>
     <% else %>
       <p>蛇のデータがありません。</p>
     <% end %>
   </div>
+<% else %>
+  <%= turbo_frame_tag "omikuji-result", data: { controller: "omikuji" } do %>
+    <div class="fortune-effect-container" data-leaf-result="<%= @snake&.omikuji_result&.name %>"></div>
+    <h2 class="sub-title">おみくじ結果</h2>
+    <div class="container">
+      <% if @snake %>
+        <%= render "omikujis/result" %>
+        <%= render "omikujis/snake" %>
+      <% else %>
+        <p>蛇のデータがありません。</p>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
