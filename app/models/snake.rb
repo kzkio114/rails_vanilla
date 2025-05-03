@@ -5,4 +5,6 @@ class Snake < ApplicationRecord
   def self.random_snake
     includes(:omikuji_result, :snake_colors).order("RANDOM()").first
   end
+
+  has_one_attached :image
 end
