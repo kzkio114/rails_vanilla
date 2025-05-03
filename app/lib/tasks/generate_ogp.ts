@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import { FormData } from "undici"; // Bunでは不要、Nodeなら必要（v18未満）
 
 async function takeScreenshot() {
   const url = "https://omikuji.fly.dev/ogp_templates/1";
@@ -32,18 +33,18 @@ async function takeScreenshot() {
       return;
     }
 
-    // 📷 スクリーンショットの取得（バッファで）
     const buffer = await page.screenshot();
     console.log("✅ スクリーンショットを取得");
 
-    // 📨 Rails に画像をPOST
+    // FormDataの生成
     const form = new FormData();
     form.append("image", new Blob([buffer], { type: "image/png" }), "screenshot.png");
-    form.append("id", "1"); // OGPテンプレートのID
+    form.append("id", "1");
 
     const uploadResponse = await fetch("http://localhost:3000/internal/ogp_upload", {
       method: "POST",
       body: form,
+      // Bun では Content-Type は自動設定されるので headers は不要
     });
 
     if (!uploadResponse.ok) {
