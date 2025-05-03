@@ -37,7 +37,7 @@ async function takeScreenshot() {
     form.append("image", new Blob([buffer], { type: "image/png" }), "screenshot.png");
     form.append("id", "1");
 
-    const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.BASE_URL || "https://omikuji.fly.dev";
     const uploadResponse = await fetch(`${baseUrl}/internal/ogp_upload`, {
       method: "POST",
       body: form,
