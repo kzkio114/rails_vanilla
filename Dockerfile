@@ -15,28 +15,30 @@ RUN apt-get update -qq && \
 RUN gem install bundler --no-document && \
     gem install rails --no-document
 
-# Bun install (versionは例)
+# Bun install
 RUN curl -fsSL https://bun.sh/install | bash && \
     export PATH="$HOME/.bun/bin:$PATH"
 
 ENV PORT=80
-
-# 作業ディレクトリ
 WORKDIR /app
 
-# Gemfile を先にコピーして依存解決
+# Rubyの依存解決
 COPY Gemfile Gemfile.lock /app/
 RUN bundle install --jobs=4 --retry=3
 
+# Node.js用パッケージインストール（package.json がある前提）
+COPY package.json package-lock.json* /app/
+RUN npm install
+
 # アプリケーション全体をコピー
 COPY . /app
+
+# assetsプリコンパイル
+RUN bundle exec rails assets:precompile
 
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:80/up || exit 1
 
 EXPOSE 80
-
-# assetsはビルド時にまとめて作っておく
-RUN bundle exec rails assets:precompile
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "80"]
