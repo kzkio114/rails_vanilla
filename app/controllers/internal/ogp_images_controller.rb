@@ -10,7 +10,10 @@ class Internal::OgpImagesController < ApplicationController
 
     if params[:image].present?
       snake.image.attach(params[:image])
-      render json: { url: url_for(snake.image) }, status: :ok
+
+      public_url = "https://pub-1907a15a98994ec0915c588d7425f466.r2.dev/#{snake.image.key}"
+
+      render json: { url: public_url }, status: :ok
     else
       render json: { error: "No image provided" }, status: :bad_request
     end
