@@ -9,6 +9,7 @@ console_command = '/rails/bin/rails console'
 [env]
   RAILS_HOSTS = "omikuji.fly.dev"
   PORT = '8080'
+  BASE_URL = "https://omikuji.fly.dev"
 
 [processes]
   app = "./bin/rails server -b 0.0.0.0 -p 8080"
