@@ -2,6 +2,11 @@
   margin-top: 5px;
 }
 
+.top-container {
+  margin-top: 8px; /* 必要に応じて調整（例: 24px相当） */
+  display: inline-block; /* ブロック化して余白が効くように */
+}
+
 .bottom-container {
   margin-bottom: 90px;
 }

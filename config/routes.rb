@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get "ogp_templates/show"
+
   get "/up", to: proc { [200, { "Content-Type" => "text/plain" }, ["OK"]] }
+  get "/privacy", to: "static_pages#privacy", as: :privacy
 
   resources :ogp_templates, only: [:show]
-
-  root "tops#index"
-
-  resource :modal, only: [:show, :create, :destroy]
 
   resources :omikujis, only: %i[index create] do
     collection do
@@ -14,10 +11,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :modal, only: [:show, :create, :destroy]
+
   namespace :internal do
     post "ogp_upload", to: "ogp_images#create"
   end
-  
+
+  root "tops#index"
+
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

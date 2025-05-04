@@ -22,6 +22,16 @@
       <meta name="twitter:image" content="https://pub-1907a15a98994ec0915c588d7425f466.r2.dev/<%= @snake.image.key %>" />
     <% end %>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8KRKRHTGF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J8KRKRHTGF');
+    </script>
+
 
     <%= yield :head %>
 
