@@ -1,14 +1,3 @@
-<% if params[:static] %>
-  <div class="container">
-    <h2>おみくじ結果</h2>
-    <% if @snake %>
-      <%= render partial: "omikujis/result", locals: { snake: @snake } %>
-      <%= render partial: "omikujis/snake", locals: { snake: @snake } %>
-    <% else %>
-      <p>蛇のデータがありません。</p>
-    <% end %>
-  </div>
-<% else %>
   <%= turbo_frame_tag "omikuji-result", data: { controller: "omikuji" } do %>
     <div class="fortune-effect-container" data-leaf-result="<%= @snake&.omikuji_result&.name %>"></div>
     <h2 class="sub-title">おみくじ結果</h2>
