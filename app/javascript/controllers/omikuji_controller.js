@@ -61,7 +61,7 @@ export default class extends Controller {
   getLeafSettings(resultText) {
     switch (resultText) {
       case "大大吉":
-        return { leafCount: 160, colors: ["#FFD700", "#FFC107", "#FFF8DC"], duration: 14 };
+        return { leafCount: 160, colors: ["#FFD700", "#FFC107", "#FFF8DC"], duration: 7 };
       case "大吉":
         return { leafCount: 120, colors: ["#4CAF50", "#8BC34A", "#FF9800", "#FFC107"], duration: 7 };
       case "中吉":
