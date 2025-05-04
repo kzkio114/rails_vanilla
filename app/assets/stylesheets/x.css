@@ -25,3 +25,16 @@
   font-size: 1.1rem;
   line-height: 1;
 }
+
+#reshuffle-button,
+#x-share-button {
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+#reshuffle-button.visible,
+#x-share-button.visible {
+  opacity: 1;
+  pointer-events: auto;
+}

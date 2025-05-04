@@ -5,6 +5,13 @@ export default class extends Controller {
     requestAnimationFrame(() => {
       const container = document.querySelector(".fortune-effect-container");
       const resultText = container?.dataset?.leafResult?.trim();
+
+      const xButton = document.getElementById("x-share-button");
+      if (xButton) {
+        xButton.classList.remove("visible");
+        xButton.disabled = true;
+      }
+
       if (resultText) {
         this.spawnFallingLeaves(resultText);
       }
@@ -51,12 +58,20 @@ export default class extends Controller {
 
     if (reshuffleButton) {
       const totalAnimationTime = (leafCount * 100) + 2000;
+
       setTimeout(() => {
         reshuffleButton.disabled = false;
         reshuffleButton.classList.add("visible");
+
+        const xButton = document.getElementById("x-share-button");
+        if (xButton) {
+          xButton.disabled = false;
+          xButton.classList.add("visible");
+        }
       }, totalAnimationTime);
     }
   }
+
 
   getLeafSettings(resultText) {
     switch (resultText) {
