@@ -1,0 +1,27 @@
+/* Xボタン風 */
+.x-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #000000; /* 黒ベース */
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.x-button:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.x-button::before {
+  content: "𝕏"; /* Xロゴ風の文字 */
+  font-size: 1.1rem;
+  line-height: 1;
+}
