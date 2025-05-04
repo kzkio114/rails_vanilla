@@ -7,4 +7,6 @@ class Snake < ApplicationRecord
   end
 
   has_one_attached :image
+
+  after_create_commit { GenerateOgpJob.perform_later(id) }
 end

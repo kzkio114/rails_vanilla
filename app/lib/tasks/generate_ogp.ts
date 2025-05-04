@@ -1,60 +1,66 @@
+// generate_ogp_server.ts
+import { serve } from "bun";
 import puppeteer from "puppeteer";
 import { FormData } from "undici";
 
-async function takeScreenshot() {
-  const url = "https://omikuji.fly.dev/ogp_templates/1";
+serve({
+  port: process.env.PORT || 3000,
+  fetch: async (req) => {
+    const url = new URL(req.url);
 
-  console.log("📸 アクセス先:", url);
-
-  const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium', // DockerでChromiumを明示する場合
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    headless: "new",
-  });
-
-  try {
-    const page = await browser.newPage();
-    const response = await page.goto(url, { waitUntil: "networkidle0" });
-
-    if (!response || !response.ok()) {
-      console.error(`❌ ページの読み込みに失敗: status = ${response?.status()}`);
-      return;
+    if (url.pathname !== "/generate_ogp") {
+      return new Response("Not Found", { status: 404 });
     }
 
-    await page.waitForSelector("h1");
-    await new Promise(resolve => setTimeout(resolve, 21000));
-
-    const html = await page.content();
-    if (html.includes("Web Console") || html.includes("Exception") || html.includes("error")) {
-      console.error("❌ Railsのエラー画面が表示されています。");
-      return;
+    const snakeId = url.searchParams.get("id");
+    if (!snakeId) {
+      return new Response("Missing id", { status: 400 });
     }
 
-    const buffer = await page.screenshot();
-    console.log("✅ スクリーンショットを取得");
+    console.log(`📥 ジョブ受信: Snake ID = ${snakeId}`);
+    const targetUrl = `https://omikuji.fly.dev/ogp_templates/${snakeId}`;
 
-    const form = new FormData();
-    form.append("image", new Blob([buffer], { type: "image/png" }), "screenshot.png");
-    form.append("id", "1");
-
-    const baseUrl = process.env.BASE_URL || "https://omikuji.fly.dev";
-    const uploadResponse = await fetch(`${baseUrl}/internal/ogp_upload`, {
-      method: "POST",
-      body: form,
+    const browser = await puppeteer.launch({
+      executablePath: "/usr/bin/chromium",
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      headless: "new",
     });
 
-    if (!uploadResponse.ok) {
-      console.error("❌ Railsへの画像アップロード失敗:", await uploadResponse.text());
-    } else {
+    try {
+      const page = await browser.newPage();
+      const response = await page.goto(targetUrl, { waitUntil: "networkidle0" });
+
+      if (!response || !response.ok()) {
+        return new Response("Failed to load page", { status: 500 });
+      }
+
+      await page.waitForSelector("h1");
+      await new Promise(resolve => setTimeout(resolve, 21000));
+
+      const buffer = await page.screenshot();
+
+      const form = new FormData();
+      form.append("image", new Blob([buffer], { type: "image/png" }), "screenshot.png");
+      form.append("id", snakeId);
+
+      const uploadResponse = await fetch("https://omikuji.fly.dev/internal/ogp_upload", {
+        method: "POST",
+        body: form,
+      });
+
+      if (!uploadResponse.ok) {
+        return new Response("Upload failed", { status: 500 });
+      }
+
       const json = await uploadResponse.json();
-      console.log("✅ Railsに画像をアップロード完了:", json.url);
+      console.log("✅ Upload 完了:", json.url);
+      return new Response("Done", { status: 200 });
+
+    } catch (e) {
+      console.error("❌ エラー:", e);
+      return new Response("Server Error", { status: 500 });
+    } finally {
+      await browser.close();
     }
-
-  } catch (err) {
-    console.error("❌ エラー:", err);
-  } finally {
-    await browser.close();
   }
-}
-
-takeScreenshot();
+});
