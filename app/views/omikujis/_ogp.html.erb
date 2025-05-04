@@ -1,0 +1,8 @@
+<%= link_to "Xでシェア",
+  "https://twitter.com/intent/tweet?" + {
+    text: "今日の運勢を占ってみた！\n\n#おみくじ #巳年",
+  url: main_app.ogp_template_url(@snake, static: 1)
+  }.to_query,
+  target: "_blank",
+  rel: "noopener"
+%>

@@ -1,16 +1,5 @@
+<div class ="bottom">
 <h1><%= @snake.omikuji_result.name %></h1>
 <%= @snake.name %>
 <p><%= @snake.omikuji_result.description %></p>
-  <% if @snake %>
-    <%= link_to "Xでシェア",
-  "https://twitter.com/intent/tweet?" + {
-    text: "今日の運勢を占ってみた！",
-    url: main_app.ogp_template_url(@snake, static: 1),
-    hashtags: "おみくじ,巳年"
-  }.to_query,
-  target: "_blank",
-  rel: "noopener",
-  class: "button is-link mt-3"
-%>
-<% end %>
-
+</div>

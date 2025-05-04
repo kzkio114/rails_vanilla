@@ -3,6 +3,7 @@
   <h2 class="sub-title">おみくじ結果</h2>
   <div class="container">
     <% if @snake %>
+    <%= render "omikujis/ogp" %>
       <%= render "omikujis/result" %>
       <%= render "omikujis/snake" %>
     <% else %>
