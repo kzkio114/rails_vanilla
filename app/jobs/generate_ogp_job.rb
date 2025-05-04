@@ -7,7 +7,7 @@ class GenerateOgpJob < ApplicationJob
     bun_path = "/root/.bun/bin/bun"
     script_path = Rails.root.join("lib/scripts/generate_ogp.ts").to_s
 
-    success = system(bun_path, "run", script_path, snake_id.to_s)
+    success = system({ "RAILS_ENV" => "production" }, bun_path, "run", script_path, snake_id.to_s)
     Rails.logger.info("✅ bun実行結果: #{success}")
     Rails.logger.error("❌ bun実行失敗") unless success
   end
