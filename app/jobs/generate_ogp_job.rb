@@ -4,12 +4,10 @@ class GenerateOgpJob < ApplicationJob
   def perform(snake_id)
     Rails.logger.info("🐍 OGP生成ジョブ開始 #{snake_id}")
 
-    # Flyで確認したパスを使用（`fly ssh console`で `which bun` の結果）
     bun_path = "/root/.bun/bin/bun"
+    script_path = Rails.root.join("app/lib/tasks/generate_ogp_once.ts").to_s
 
-    # 実行コマンド
-    success = system(bun_path, "run", "app/lib/tasks/generate_ogp_once.ts", snake_id.to_s)
-
+    success = system(bun_path, "run", script_path, snake_id.to_s)
     Rails.logger.info("✅ bun実行結果: #{success}")
     Rails.logger.error("❌ bun実行失敗") unless success
   end
