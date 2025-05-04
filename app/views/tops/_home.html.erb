@@ -1,1 +1,9 @@
-<%= link_to "ホームに戻る？", root_path, class: "button top" %>
+<% if params[:controller] == "static_pages" %>
+  <% button_class = "" %>
+  <% button_text = "戻る" %>
+<% else %>
+  <% button_class = "button top" %>
+  <% button_text = "ホームに戻る？" %>
+<% end %>
+
+<%= link_to button_text, root_path, class: button_class %>

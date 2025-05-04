@@ -1,6 +1,8 @@
 class OmikujiHistory < ApplicationRecord
   belongs_to :snake
 
+  has_one_attached :image
+
   scope :recent, -> { order(created_at: :desc).limit(10) }
 
 

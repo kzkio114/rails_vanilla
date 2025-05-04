@@ -2,10 +2,23 @@
   margin-top: 5px;
 }
 
+.top-container {
+  margin-top: 8px;
+  display: inline-block;
+}
+
 .bottom-container {
   margin-bottom: 90px;
 }
 
 .bottom {
   margin-bottom: 25px;
+}
+
+.ml{
+  margin-left: 10px;
+}
+
+.top-git {
+  margin-top: 18px;
 }

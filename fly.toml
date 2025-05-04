@@ -9,6 +9,7 @@ console_command = '/rails/bin/rails console'
 [env]
   RAILS_HOSTS = "omikuji.fly.dev"
   PORT = '8080'
+  BASE_URL = "https://omikuji.fly.dev"
 
 [processes]
   app = "./bin/rails server -b 0.0.0.0 -p 8080"
@@ -23,9 +24,10 @@ console_command = '/rails/bin/rails console'
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = false  # 常時起動させたい
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1    # 少なくとも1台は常に起動
+
   processes = ['app']
 
   [[http_service.checks]]

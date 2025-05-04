@@ -5,6 +5,13 @@ export default class extends Controller {
     requestAnimationFrame(() => {
       const container = document.querySelector(".fortune-effect-container");
       const resultText = container?.dataset?.leafResult?.trim();
+
+      const xButton = document.getElementById("x-share-button");
+      if (xButton) {
+        xButton.classList.remove("visible");
+        xButton.disabled = true;
+      }
+
       if (resultText) {
         this.spawnFallingLeaves(resultText);
       }
@@ -51,17 +58,25 @@ export default class extends Controller {
 
     if (reshuffleButton) {
       const totalAnimationTime = (leafCount * 100) + 2000;
+
       setTimeout(() => {
         reshuffleButton.disabled = false;
         reshuffleButton.classList.add("visible");
+
+        const xButton = document.getElementById("x-share-button");
+        if (xButton) {
+          xButton.disabled = false;
+          xButton.classList.add("visible");
+        }
       }, totalAnimationTime);
     }
   }
 
+
   getLeafSettings(resultText) {
     switch (resultText) {
       case "大大吉":
-        return { leafCount: 160, colors: ["#FFD700", "#FFC107", "#FFF8DC"], duration: 14 };
+        return { leafCount: 160, colors: ["#FFD700", "#FFC107", "#FFF8DC"], duration: 7 };
       case "大吉":
         return { leafCount: 120, colors: ["#4CAF50", "#8BC34A", "#FF9800", "#FFC107"], duration: 7 };
       case "中吉":
