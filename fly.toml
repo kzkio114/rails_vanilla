@@ -13,7 +13,7 @@ console_command = '/rails/bin/rails console'
 
 [processes]
   app = "./bin/rails server -b 0.0.0.0 -p 8080"
-  ogp_worker = "bun run app/lib/tasks/generate_ogp_server.ts"
+  ogp_worker = "bun run app/lib/tasks/generate_ogp.ts"
 
 [[mounts]]
   source = 'data'
