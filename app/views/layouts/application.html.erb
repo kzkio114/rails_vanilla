@@ -9,6 +9,19 @@
     <meta name="turbo-refresh-scroll" content="preserve">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% if @snake&.image&.attached? %>
+      <meta property="og:title" content="今日の運勢は『<%= @snake.omikuji_result.name %>』" />
+      <meta property="og:description" content="<%= @snake.omikuji_result.description %>" />
+      <meta property="og:image" content="https://pub-1907a15a98994ec0915c588d7425f466.r2.dev/<%= @snake.image.key %>" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="<%= request.original_url %>" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="今日の運勢は『<%= @snake.omikuji_result.name %>』" />
+      <meta name="twitter:description" content="<%= @snake.omikuji_result.description %>" />
+      <meta name="twitter:image" content="https://pub-1907a15a98994ec0915c588d7425f466.r2.dev/<%= @snake.image.key %>" />
+    <% end %>
+
 
     <%= yield :head %>
 
