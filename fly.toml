@@ -21,6 +21,7 @@ console_command = '/rails/bin/rails console'
   auto_extend_size_threshold = 80
   auto_extend_size_increment = '1GB'
   auto_extend_size_limit = '10GB'
+  destination="/app/storage"
 
 [http_service]
   internal_port = 8080
