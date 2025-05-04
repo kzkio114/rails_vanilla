@@ -15,7 +15,7 @@ try {
   const page = await browser.newPage();
   await page.goto(targetUrl, { waitUntil: "networkidle0" });
   await page.waitForSelector("h1");
-  await new Promise(resolve => setTimeout(resolve, 9000));
+  await new Promise(resolve => setTimeout(resolve, 12000));
 
   const buffer = await page.screenshot();
 
