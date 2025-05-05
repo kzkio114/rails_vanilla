@@ -52,12 +52,12 @@ export default class extends Controller {
         setTimeout(() => {
           leaf.remove();
           styleElement.remove();
-        }, (duration * 1000) + 2000);
-      }, i * 100);
+        }, (duration * 1000) + 1000);
+      }, i * 50);
     }
 
     if (reshuffleButton) {
-      const totalAnimationTime = (leafCount * 100) + 2000;
+      const totalAnimationTime = (leafCount * 100) + 1000;
 
       setTimeout(() => {
         reshuffleButton.disabled = false;
