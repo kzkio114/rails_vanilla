@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="おみくじ(巳)" />
     <meta name="twitter:description" content="運勢を引いて、今日の気分を知ろう！" />
-    <meta property="og:image" content="<%= og_image_url %>" />
+    <meta property="twitter:image" content="<%= og_image_url %>" />
 
     <% if @snake&.image&.attached? %>
       <meta property="og:title" content="今日の運勢は『<%= @snake.omikuji_result.name %>』" />
