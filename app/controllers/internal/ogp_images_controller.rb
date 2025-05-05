@@ -8,14 +8,15 @@ class Internal::OgpImagesController < ApplicationController
       render json: { error: "Snake not found" }, status: :not_found and return
     end
 
-    if params[:image].present?
-      # 🔽 既存画像を明示的に削除してからアップロード（PurgeJobを防ぐ）
+    if params[:image].respond_to?(:tempfile)
       snake.image.detach if snake.image.attached?
 
-      # 🔽 添付
-      snake.image.attach(params[:image])
+      snake.image.attach(
+        io: params[:image].tempfile,
+        filename: "ogp_#{SecureRandom.hex(6)}.png",
+        content_type: params[:image].content_type
+      )
 
-      # 🔽 公開URLを返す（Cloudflare R2 の pub URL + ActiveStorageのキー）
       public_url = "https://pub-1907a15a98994ec0915c588d7425f466.r2.dev/#{snake.image.key}"
 
       render json: { url: public_url }, status: :ok

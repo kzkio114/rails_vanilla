@@ -9,18 +9,19 @@
     <meta name="turbo-refresh-scroll" content="preserve">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <% og_image_url = URI.join(root_url, asset_path("torii.png")) %>
+    <% og_image_url = URI.join(root_url, asset_path("ogp.png")) %>
 
     <meta property="og:title" content="おみくじ(巳)" />
     <meta property="og:description" content="運勢を引いて、今日の気分を知ろう！" />
     <meta property="og:image" content="<%= og_image_url %>" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:url" content="https://omikuji.fly.dev/" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="おみくじ(巳)" />
     <meta name="twitter:description" content="運勢を引いて、今日の気分を知ろう！" />
     <meta name="twitter:image" content="<%= og_image_url %>" />
+
     <% if @snake&.image&.attached? %>
       <meta property="og:title" content="今日の運勢は『<%= @snake.omikuji_result.name %>』" />
       <meta property="og:description" content="<%= @snake.omikuji_result.description %>" />
